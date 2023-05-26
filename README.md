@@ -56,3 +56,16 @@ helloworld.exe
 
 7. Please note that this assumes you have the gfortran compiler installed on your system. If it is not installed, you need to download and install it. There are many tutorials available online for how to do this.
 8. Furthermore, the process to compile and run the program can differ based on the development environment or the IDE you are using. For example, in some IDEs, you can compile and run the program with a single click.
+
+---
+**Why is the suffix .f90 used? Is it mandatory?**
+
+The `.f90` suffix is commonly used for Fortran source files that use the free form source code layout introduced with Fortran 90. This is the layout that allows for flexibility with white space and line breaks compared to the older fixed form layout, which was quite restrictive.
+
+The suffix is not mandatory, but it is recommended for the following reasons:
+
+It helps to identify the file type quickly. If you see a file with a `.f90` extension, you can immediately identify it as a Fortran 90 or later source code file.
+
+Some Fortran compilers use the file extension to determine the source form to expect. For example, with the gfortran compiler, a `.f` or `.for` extension indicates fixed-form source, whereas `.f90`, `.f95`, `.f03`, `.f08` indicate free-form source.
+
+So, while not mandatory, it is generally a good idea to use the `.f90` extension (or the appropriate extension for your Fortran version) for your Fortran source files.
