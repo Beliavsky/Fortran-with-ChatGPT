@@ -99,6 +99,27 @@ After adding gfortran to the system's PATH, you should be able to run the `gfort
 Note that you may need to open a new command prompt window for the changes to take effect.
 
 ---
+**Can I add it to my PATH from the command prompt?**
+
+Yes, you can add gfortran to your PATH from the command prompt on Windows using the `setx` command. Follow these steps:
+
+1. Open a command prompt window.
+
+2. Determine the directory where gfortran is installed. For example, if it is installed in `C:\MinGW\bin`, use that as the installation directory.
+
+3. Run the following command to add gfortran to your PATH:
+```
+setx PATH "%PATH%;C:\MinGW\bin"
+```
+Replace `C:\MinGW\bin` with the actual installation directory of gfortran on your system.
+
+4. After running the command, you should see a message indicating that the operation was successful.
+
+5. Close the command prompt window and open a new command prompt for the changes to take effect.
+
+Once you have added gfortran to your PATH, you should be able to run the `gfortran` command from any directory in the command prompt without specifying the full path to the executable.
+
+---
 **What will be the name of the executable if you compile with `gfortran helloworld.f90` on Linux and on Windows?**
 
 When you compile a Fortran source file `helloworld.f90` with `gfortran helloworld.f90` on Linux, the resulting executable will be named `a.out` by default, as mentioned earlier.
