@@ -190,3 +190,14 @@ program array_operations
     
 end program array_operations
 ```
+
+---
+**How would I print the sum of the squares of the elements of x in the code above?**
+
+To print the sum of the squares of the elements of array `x`, you can use the `sum` function in combination with the exponentiation operator (`**`):
+
+```fortran
+write(*, *) "Sum of squares:", sum(x**2)
+```
+
+This line calculates the squares of each element of `x` using the exponentiation operator `**`, and then uses the `sum` function to compute the sum of the squared values. The result is printed using the `write` statement.
