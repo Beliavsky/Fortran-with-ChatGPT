@@ -241,4 +241,30 @@ You could run this program, and it would display the values of the variables `x`
 Also, please note that Fortran will print logical variables as `T` for `.true.` and `F` for `.false.`.
 
 ---
+**What are the values of variables before they are set?**
 
+In Fortran, as in many other programming languages, variables that are declared but not initialized can contain "garbage" values -- whatever data happened to be in the memory location assigned to the variable.
+
+For example, consider the following Fortran code:
+
+```Fortran
+program UninitializedVar
+    implicit none
+    integer :: x
+    print*, 'The value of x is: ', x
+end program UninitializedVar
+```
+
+If you run this program, it may print out a random number as the value of `x`, or it might cause a runtime error, depending on the compiler and runtime environment. The value of `x` before it's initialized is unpredictable, so you should always initialize your variables before you use them.
+
+Fortran provides a convenient way to declare and initialize a variable in one line. Here's an example:
+
+```Fortran
+program InitializedVar
+    implicit none
+    integer :: x = 10
+    print*, 'The value of x is: ', x
+end program InitializedVar
+```
+
+In this program, `x` is declared as an integer and initialized to `10`. If you run this program, it will consistently print `The value of x is:  10`, because `x` is initialized before it's used.
