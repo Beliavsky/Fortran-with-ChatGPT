@@ -1,7 +1,7 @@
 # Fortran with ChatGPT
 Questions about Fortran answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended. This page discusses compiling. For other topics see
 
-[Variables](./Variables.md)
+[Variables and Order of Operations](./Variables.md)
 
 ---
 **Let's write a modern Fortran tutorial. Show a "Hello World" Fortran program with a comment line and explain how to compile and run the program on Linux and Windows.**
