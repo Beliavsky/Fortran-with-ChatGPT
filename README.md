@@ -91,3 +91,49 @@ gfortran -ffree-form filename.f
 Other Fortran compilers may have different flags or conventions for indicating free-form source code. It's recommended to consult the documentation or user guide of your specific compiler for the appropriate options.
 
 Alternatively, you can consider renaming the file to have the `.f90` extension to ensure it is treated as free-form source code by default.
+
+---
+**How do I do arithmetic in Fortran with ordinary numbers, without defining any variables? What are the available operators?**
+
+In Fortran, you can perform arithmetic operations without explicitly defining variables. You can directly use the values or literals in the arithmetic expressions. The available operators for arithmetic operations in Fortran with ordinary numbers are:
+
+Addition: `+`
+
+Subtraction: `-`
+
+Multiplication: `*`
+
+Division: `/`
+
+Exponentiation: `**`
+
+Here's an example that demonstrates the use of these operators without explicitly defining variables:
+```
+program arithmetic_example
+    implicit none
+    integer :: result
+    
+    result = 2 + 3    ! Addition
+    print*, "2 + 3 =", result
+    
+    result = 5 - 2    ! Subtraction
+    print*, "5 - 2 =", result
+    
+    result = 4 * 3    ! Multiplication
+    print*, "4 * 3 =", result
+    
+    result = 10 / 3   ! Division
+    print*, "10 / 3 =", result
+    
+    result = 2 ** 4   ! Exponentiation
+    print*, "2 ** 4 =", result
+end program arithmetic_example
+```
+The output of this program will be:
+```
+2 + 3 = 5
+5 - 2 = 3
+4 * 3 = 12
+10 / 3 = 3
+2 ** 4 = 16
+```
