@@ -1,5 +1,5 @@
 # Fortran with ChatGPT
-Questions about Fortran answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended. This page discusses compiling. For other topics see
+This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended. This page discusses compiling. For other topics see
 
 [Variables and Order of Operations](./Variables.md)  
 [Arrays](./Arrays.md)
