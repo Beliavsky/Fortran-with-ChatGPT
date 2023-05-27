@@ -182,3 +182,27 @@ Before using a variable in Fortran, it must be declared in a type declaration st
 The `implicit none` statement is commonly used in Fortran programs to require that all variables be explicitly declared. If you don't include this statement, Fortran will implicitly declare variables according to rules based on the first letter of the variable name, which can sometimes lead to confusing bugs if you make a typo in a variable name.
 
 You can also specify the precision of `real` and `complex` variables when you declare them. For example, `real(kind=8) :: x` declares `x` as a double-precision real variable. (**Note:** That is not guaranteed to work with all compilers. It is better to write define a kind parameter with something like `integer, parameter :: dp = kind(1.0d0)` and then write `real(kind=dp)`). The `kind` parameter determines the precision and range of the variable.
+
+---
+**What is a "double-precision" real variable?**
+
+A "double-precision" real variable in Fortran is a type of floating-point variable that offers greater precision (i.e., more significant digits) and a wider range than "single-precision" real variables. The term "double-precision" comes from these variables utilizing twice the number of bits as single-precision variables.
+
+In terms of bits, a single-precision real number usually uses 32 bits, while a double-precision real number uses 64 bits. The exact specifics can vary by system and compiler, but in general:
+
+- Single-precision real variables can typically provide up to 7 decimal digits of precision, with a range of about 1.2E-38 to 3.4E+38.
+- Double-precision real variables can provide up to 15 decimal digits of precision, with a range of about 2.2E-308 to 1.8E+308.
+
+In Fortran, you can declare a double-precision variable with a statement like this:
+
+```Fortran
+double precision :: x
+```
+
+Or, you can use the `kind` specifier with the `real` type to declare a variable of a specific kind (precision). For instance, `kind=8` is commonly used for double-precision:
+
+```Fortran
+real(kind=8) :: x
+```
+
+(**Note:** see the comment above warning against declarations such as `real(kind=8)`). Remember that using more precise variables consumes more memory, so it's a good idea to use the level of precision that's appropriate for your needs.
