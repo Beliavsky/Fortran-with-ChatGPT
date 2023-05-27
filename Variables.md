@@ -178,3 +178,13 @@ Here's a rough order of operations in Fortran, from highest precedence to lowest
 
 These rules are similar to the order of operations in algebra, sometimes remembered by the acronym PEMDAS (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction).
 
+---
+**Regarding the order of operations, what will** `x / x / x` **give when** `x=4.0`?
+
+The expression `x / x / x` will give the result `0.25` when `x` is assigned the value `4.0`. 
+
+The division operator `/` has left-to-right associativity, which means the division operations are evaluated from left to right. Therefore, `x / x / x` is equivalent to `(x / x) / x`.
+
+When `x` is `4.0`, the expression `x / x` evaluates to `1.0` (floating-point division of `4.0` by `4.0`). Then, `1.0 / x` evaluates to `0.25` (floating-point division of `1.0` by `4.0`).
+
+Hence, the overall result of `x / x / x` is `0.25`.
