@@ -201,3 +201,40 @@ write(*, *) "Sum of squares:", sum(x**2)
 ```
 
 This line calculates the squares of each element of `x` using the exponentiation operator `**`, and then uses the `sum` function to compute the sum of the squared values. The result is printed using the `write` statement.
+
+---
+**How do I declare an array with more than one dimension?**
+
+Declaring an array with more than one dimension in Fortran is straightforward. The syntax is similar to declaring a one-dimensional array, but you provide multiple dimension specifications, separated by commas. 
+
+Here's an example of a two-dimensional array:
+
+```Fortran
+integer, dimension(3, 4) :: myArray
+```
+
+In this declaration, `myArray` is a two-dimensional array with 3 rows and 4 columns.
+
+Here's an example of a three-dimensional array:
+
+```Fortran
+real, dimension(4, 5, 6) :: myArray
+```
+
+In this declaration, `myArray` is a three-dimensional array with dimensions 4, 5, and 6.
+
+You can also specify the lower and upper bounds of each dimension. For example:
+
+```Fortran
+integer, dimension(-1:2, 0:3) :: myArray
+```
+
+In this declaration, `myArray` is a two-dimensional array. The first dimension goes from -1 to 2 (so it has 4 elements), and the second dimension goes from 0 to 3 (so it also has 4 elements).
+
+You can initialize multi-dimensional arrays at the time of declaration, using nested array constructors. Here's an example:
+
+```Fortran
+integer, dimension(2, 2) :: myArray = reshape([1, 2, 3, 4], [2, 2])
+```
+
+In this declaration, `myArray` is a 2x2 array that is initialized with the values 1, 2, 3, and 4. The `reshape` function is used to shape a one-dimensional array into the desired multi-dimensional array shape.
