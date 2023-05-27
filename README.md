@@ -61,6 +61,23 @@ helloworld.exe
 8. Furthermore, the process to compile and run the program can differ based on the development environment or the IDE you are using. For example, in some IDEs, you can compile and run the program with a single click.
 
 ---
+**On Windows, I installed gfortran, opened a command prompt, and issued the command 'gfortran helloworld.f90' but got**
+```
+'gfortran' is not recognized as an internal or external command,
+operable program or batch file.
+```
+
+If you receive the error message "'gfortran' is not recognized as an internal or external command, operable program or batch file" when trying to compile a Fortran program with gfortran on Windows, it means that the `gfortran` executable is not in your system's PATH.
+
+To resolve this issue, you can try one of the following:
+
+1. Add the directory containing the `gfortran` executable to your system's PATH environment variable. This allows the system to locate the `gfortran` executable when you run it from any directory.
+
+2. Use an integrated development environment (IDE) that provides a graphical interface for compiling and running Fortran programs, such as Code::Blocks or Microsoft Visual Studio. These IDEs typically handle the configuration of the compiler for you.
+
+Make sure that you have installed gfortran correctly and that the installation directory is added to your system's PATH environment variable.
+
+---
 **What will be the name of the executable if you compile with `gfortran helloworld.f90` on Linux and on Windows?**
 
 When you compile a Fortran source file `helloworld.f90` with `gfortran helloworld.f90` on Linux, the resulting executable will be named `a.out` by default, as mentioned earlier.
