@@ -158,3 +158,23 @@ Declaring `pi` as a parameter has several advantages:
 
 3. It makes the program easier to maintain. If you decided to use a more accurate value for pi, you would only need to change the value in one place.
 
+---
+**You wrote** 
+
+`area = pi * radius**2`
+
+**How do you know that sets the area to** `pi*(radius**2)` **and not** `(pi*radius)**2`?
+
+The order in which operations are performed in Fortran, and many other programming languages, is determined by the rules of operator precedence. 
+
+In Fortran, the exponentiation operator (`**`) has higher precedence than multiplication (`*`). This means that exponentiation is performed before multiplication in the absence of parentheses. So, the expression `pi * radius**2` is indeed equivalent to `pi * (radius**2)` and not `(pi*radius)**2`.
+
+Here's a rough order of operations in Fortran, from highest precedence to lowest:
+
+1. Parentheses `()`: Operations inside parentheses are performed first.
+2. Exponentiation `**`
+3. Multiplication `*` and Division `/`
+4. Addition `+` and Subtraction `-`
+
+These rules are similar to the order of operations in algebra, sometimes remembered by the acronym PEMDAS (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction).
+
