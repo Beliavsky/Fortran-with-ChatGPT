@@ -206,3 +206,39 @@ real(kind=8) :: x
 ```
 
 (**Note:** see the comment above warning against declarations such as `real(kind=8)`). Remember that using more precise variables consumes more memory, so it's a good idea to use the level of precision that's appropriate for your needs.
+
+---
+**How do you display the values of variables you have set?**
+
+You can display the values of variables in Fortran using the `print` or `write` statements.
+
+Here's a simple example that demonstrates this with an integer, a real, a logical, and a character variable:
+
+```Fortran
+program DisplayValues
+    implicit none
+    integer :: x
+    real :: y
+    logical :: is_true
+    character(len=10) :: s
+
+    x = 5
+    y = 3.14
+    is_true = .true.
+    s = "Hello"
+
+    print*, 'The value of x is: ', x
+    print*, 'The value of y is: ', y
+    print*, 'The value of is_true is: ', is_true
+    print*, 'The value of s is: ', s
+end program DisplayValues
+```
+
+In this program, the `print` statement is used to display the values of the variables. The `*` in the `print` statement is a placeholder for the output format - in this case, we're using the default format. Following the `,` you can list any number of variables or strings to print. The variables and strings will be printed in the order you list them.
+
+You could run this program, and it would display the values of the variables `x`, `y`, `is_true`, and `s`.
+
+Also, please note that Fortran will print logical variables as `T` for `.true.` and `F` for `.false.`.
+
+---
+
