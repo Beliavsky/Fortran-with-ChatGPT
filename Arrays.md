@@ -199,6 +199,28 @@ pack(x, mask = x > 0)
 ```
 
 ---
+**How would I count the number of elements of array x that satisfy a condition, for example being positive?**
+To count the number of elements in an array `x` that satisfy a specific condition, such as being positive, you can use the `COUNT` intrinsic function, which returns the number of elements in an array that meet a specified condition.
+
+Here's an example of how you can count the number of positive elements in an array `x`:
+
+```fortran
+program count_positive_elements
+    implicit none
+    integer, parameter :: n = 10
+    real :: x(n)
+    
+    ! Initialize array x with some values
+    x = [1.0, -2.0, 3.0, -4.0, 5.0, -6.0, 7.0, -8.0, 9.0, -10.0]
+    
+    ! Print the number of positive elements in x
+    print *, "Number of positive elements:", count(x > 0.0) ! 5
+end program count_positive_elements
+```
+
+In this example, the `x > 0.0` expression creates a logical mask indicating which elements of `x` are positive. The `count` function is then used to count the number of `True` values in the mask, which corresponds to the number of positive elements in `x`.
+
+---
 **If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
 
 Here's an example program in Fortran that calculates the sum, product, minimum, maximum, and positions of the smallest and largest elements in an array:
