@@ -238,3 +238,8 @@ integer, dimension(2, 2) :: myArray = reshape([1, 2, 3, 4], [2, 2])
 ```
 
 In this declaration, `myArray` is a 2x2 array that is initialized with the values 1, 2, 3, and 4. The `reshape` function is used to shape a one-dimensional array into the desired multi-dimensional array shape.
+
+**Note:** there is alternative declaration syntax that does not use `dimension`, for example
+```Fortran
+integer :: myArray(3, 4)
+```
