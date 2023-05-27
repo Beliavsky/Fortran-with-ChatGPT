@@ -108,3 +108,47 @@ Fortran runtime error: Index '6' of dimension 1 of array 'x' above upper bound o
 ```
 
 To avoid these kinds of errors, you should always make sure that your code never tries to access an array element outside of its valid range. You can do this by using array bounds in loops and other control structures, and by validating any user input or other data that's used as an array index.
+
+---
+**How do you refer to only part of an array?**
+
+In Fortran, you can refer to a portion of an array using array sections. This is a very powerful feature that allows you to operate on subsets of an array without having to write explicit loops.
+
+Array sections are specified by providing a range of indices instead of a single index. The range is written as `start:end`, where `start` is the index of the first element in the section and `end` is the index of the last element. Here's an example:
+
+```Fortran
+program ArraySection
+    implicit none
+    integer, dimension(10) :: myArray
+    integer :: i
+
+    ! Initialize the array
+    myArray = [(i, i = 1, 10)]
+
+    ! Print the whole array
+    print*, 'The whole array: ', myArray
+
+    ! Print a section of the array
+    print*, 'Elements 3 to 6: ', myArray(3:6)
+end program ArraySection
+```
+
+In this program, `myArray(3:6)` refers to a section of `myArray` that includes elements 3, 4, 5, and 6. 
+
+You can also use array sections on the left-hand side of an assignment to modify a portion of an array. For example:
+
+```Fortran
+myArray(3:6) = 0
+```
+
+This statement sets elements 3, 4, 5, and 6 of `myArray` to zero.
+
+Furthermore, you can use a stride value to refer to every nth element in an array section. The syntax for this is `start:end:stride`. For example:
+
+```Fortran
+print*, 'Every second element from 3 to 9: ', myArray(3:9:2)
+```
+
+This statement prints elements 3, 5, 7, and 9 of `myArray`.
+
+Array sections are a powerful tool for writing concise and efficient Fortran code, especially when working with large, multidimensional arrays. However, it's important to remember that, like any tool, they should be used judiciously and with an understanding of their potential impact on performance.
