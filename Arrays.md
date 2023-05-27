@@ -364,5 +364,45 @@ program array_size
 end program array_size
 ```
 
-In this example, the `SIZE` function is used to obtain the sizes of `x` along each dimension (`dim=1`, `dim=2`, `dim=3`) and the total size (`size(x)`). The results are then printed to the console. **Note:** the `SHAPE` function returns an array of the sizes along each dimension. 
+In this example, the `SIZE` function is used to obtain the sizes of `x` along each dimension (`dim=1`, `dim=2`, `dim=3`) and the total size (`size(x)`). The results are then printed to the console. **Note:** the `SHAPE` function returns an array of the sizes along each dimension.
+
+---
+**How do I get the lower and upper bounds of array x along each dimension?**
+
+To get the lower and upper bounds of an array `x` along each dimension, you can use the `LBOUND` and `UBOUND` intrinsic functions. Here's an example of how you can obtain the lower and upper bounds along each dimension:
+
+```fortran
+program array_bounds
+    implicit none
+    
+    real, dimension(-2:3, 1:4, 5:8) :: x
+    
+    integer :: lb_dim1, ub_dim1
+    integer :: lb_dim2, ub_dim2
+    integer :: lb_dim3, ub_dim3
+    
+    lb_dim1 = lbound(x, dim=1)
+    ub_dim1 = ubound(x, dim=1)
+    
+    lb_dim2 = lbound(x, dim=2)
+    ub_dim2 = ubound(x, dim=2)
+    
+    lb_dim3 = lbound(x, dim=3)
+    ub_dim3 = ubound(x, dim=3)
+    
+    print *, "Lower bound of dimension 1:", lb_dim1 ! -2
+    print *, "Upper bound of dimension 1:", ub_dim1 !  3
+    
+    print *, "Lower bound of dimension 2:", lb_dim2 !  1
+    print *, "Upper bound of dimension 2:", ub_dim2 !  4
+    
+    print *, "Lower bound of dimension 3:", lb_dim3 !  5
+    print *, "Upper bound of dimension 3:", ub_dim3 !  8
+    ! 2 lines below added by me
+    print *, "Lower bounds:", lbound(x) ! -2  1  5
+    print *, "Upper bounds:", ubound(x) !  3  4  8
+end program array_bounds
+```
+
+In this example, the `LBOUND` function is used to obtain the lower bounds of `x` along each dimension (`dim=1`, `dim=2`, `dim=3`), and the `UBOUND` function is used to obtain the upper bounds. **Note:** `LBOUND` and `UBOUND` without a `dim` argument return arrays containing the lower and upper bounds along the dimensions.
 
