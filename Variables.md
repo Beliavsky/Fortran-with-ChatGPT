@@ -131,7 +131,7 @@ In this program, `x` is declared as an integer and initialized to `10`. If you r
 ---
 **In a program to calculate the areas of circles, the radius could change, but pi will not. How can Fortran deal with that?**
 
-In Fortran, you can use a parameter to represent a constant value that doesn't change. The parameter is given a name and a value when it's declared, and it keeps that value for its entire existence.
+In Fortran, you can use a **parameter** to represent a constant value that doesn't change. The parameter is given a name and a value when it's declared, and it keeps that value for its entire existence.
 
 For example, you might declare a parameter for pi in a program to calculate the areas of circles:
 
