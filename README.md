@@ -138,3 +138,47 @@ The output of this program will be:
 10 / 3 = 3
 2 ** 4 = 16
 ```
+---
+**Tell me about variables.**
+
+In Fortran, as in many other programming languages, variables are used to store data that your program can manipulate. Each variable in Fortran has a name, a type, and a value.
+
+Here are the main types of variables in Fortran:
+
+1. **Integer**: This is used to store integer values. For example:
+    ```Fortran
+    integer :: x
+    x = 5
+    ```
+
+2. **Real**: This is used to store real numbers (i.e., floating point values). For example:
+    ```Fortran
+    real :: y
+    y = 3.14
+    ```
+
+3. **Complex**: This is used to store complex numbers. A complex number has a real part and an imaginary part. For example:
+    ```Fortran
+    complex :: z
+    z = (1.0, 2.0)  ! 1.0 is the real part and 2.0 is the imaginary part
+    ```
+
+4. **Logical**: This is used to store logical values, i.e., `.true.` or `.false.`. For example:
+    ```Fortran
+    logical :: is_true
+    is_true = .true.
+    ```
+
+5. **Character**: This is used to store characters or strings. For example:
+    ```Fortran
+    character(len=5) :: s
+    s = "Hello"
+    ```
+
+Variable names in Fortran must start with a letter and can contain letters, digits, and underscores. The Fortran language is case insensitive, meaning that `myVariable`, `MYVARIABLE`, and `MyVariable` would all refer to the same variable.
+
+Before using a variable in Fortran, it must be declared in a type declaration statement (as shown in the examples above). The `::` symbol is used to separate the variable type from the variable name(s) in the declaration. You can declare multiple variables of the same type on the same line by separating the names with commas, like so: `integer :: x, y, z`.
+
+The `implicit none` statement is commonly used in Fortran programs to require that all variables be explicitly declared. If you don't include this statement, Fortran will implicitly declare variables according to rules based on the first letter of the variable name, which can sometimes lead to confusing bugs if you make a typo in a variable name.
+
+You can also specify the precision of `real` and `complex` variables when you declare them. For example, `real(kind=8) :: x` declares `x` as a double-precision real variable. (**Note:** That is not guaranteed to work with all compilers. It is better to write define a kind parameter with something like `integer, parameter :: dp = kind(1.0d0)` and then write `real(kind=dp)`). The `kind` parameter determines the precision and range of the variable.
