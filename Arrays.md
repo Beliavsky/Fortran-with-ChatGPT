@@ -428,3 +428,23 @@ end program print_array
 ```
 
 In this example, `print *, array` will print all the elements of the array in a single statement. The elements will be printed column-wise from top to bottom, following the column-major storage order.
+
+---
+**Explain what the following line of code does:**
+```
+array = reshape([((i+j, i=1,n), j=1,m)], shape(array))
+```
+
+The line of code `array = reshape([((i+j, i=1,n), j=1,m)], shape(array))` reshapes a one-dimensional array created using an array constructor into a two-dimensional array `array` with dimensions `n` rows and `m` columns.
+
+Let's break down the line of code:
+
+1. `((i+j, i=1,n), j=1,m)` creates a one-dimensional array using nested loops. It generates values `i+j` for each combination of `i` and `j` ranging from `1` to `n` and `1` to `m`, respectively. The result is a one-dimensional array of length `n*m` with values `[2, 3, 4, ..., n+m-1]`.
+
+2. `[((i+j, i=1,n), j=1,m)]` creates an array constructor with a single expression, which is the one-dimensional array generated in step 1. The outer square brackets `[]` denote an array constructor.
+
+3. `reshape([...], shape(array))` reshapes the one-dimensional array inside the array constructor into the shape specified by `shape(array)`. The `shape` function retrieves the shape (dimensions) of the target array `array`. The reshaping operation converts the one-dimensional array into a two-dimensional array with dimensions `n` rows and `m` columns.
+
+4. Finally, `array = reshape([...], shape(array))` assigns the reshaped array to the variable `array`, effectively populating it with the values generated in step 1.
+
+In summary, the line of code creates a two-dimensional array `array` with dimensions `n` rows and `m` columns, and populates it with values computed based on the row and column indices.
