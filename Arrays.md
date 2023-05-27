@@ -63,3 +63,17 @@ arr = 10
 ```
 
 In this example, the value `10` is assigned to all elements of the array `arr`.
+
+---
+**How do you set N elements of an array to N distinct values, say x(1:3) to 2, 3, and 5?**
+
+To set N elements of an array to N distinct values, you can use array assignment with an array literal. Here's an example of setting `x(1:3)` to the values 2, 3, and 5:
+
+```
+integer, dimension(3) :: x
+x = [2, 3, 5]
+```
+
+In this example, the array literal `[2, 3, 5]` contains the values that will be assigned to the corresponding elements of `x(1:3)`.
+
+You can adjust the size and values in the array literal based on your specific needs. (**Note:** an equivalent syntax, and the only one allowed in Fortran 90, to use `(/ /)` to enclose the array elements, for example `x = (/2, 3, 5/)`.)
