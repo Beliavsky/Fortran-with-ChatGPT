@@ -77,3 +77,34 @@ x = [2, 3, 5]
 In this example, the array literal `[2, 3, 5]` contains the values that will be assigned to the corresponding elements of `x(1:3)`.
 
 You can adjust the size and values in the array literal based on your specific needs. (**Note:** an equivalent syntax, and the only one allowed in Fortran 90, to use `(/ /)` to enclose the array elements, for example `x = (/2, 3, 5/)`.)
+
+---
+**What if variable x is declared as**
+```
+real :: x(5)
+```
+**and you try to access an element of x with subscript outside the range of 1 through 5?**
+
+If you try to access an element of an array with a subscript (index) that is outside the declared range of the array, your program will likely crash or produce unexpected results. 
+
+In Fortran, array bounds are checked at runtime. If you try to access an array element that is outside the valid range, you'll usually get a runtime error. 
+
+For example, consider this Fortran program:
+
+```Fortran
+program ArrayDemo
+    implicit none
+    real :: x(5)
+
+    x = [1.0, 2.0, 3.0, 4.0, 5.0]
+    print*, 'Sixth element of x: ', x(6)
+end program ArrayDemo
+```
+
+This program will typically crash when it tries to access `x(6)`, because `x` only has 5 elements. The exact error message you'll see depends on your Fortran compiler and runtime environment, but it might look something like this:
+
+```
+Fortran runtime error: Index '6' of dimension 1 of array 'x' above upper bound of 5
+```
+
+To avoid these kinds of errors, you should always make sure that your code never tries to access an array element outside of its valid range. You can do this by using array bounds in loops and other control structures, and by validating any user input or other data that's used as an array index.
