@@ -165,6 +165,19 @@ x([2, 3, 5])
 This creates an array section that consists of the specified indices. The resulting array section will have the values of elements 2, 3, and 5 of `x`. You can use this array section in assignments, computations, or any other operations involving the selected elements.
 
 ---
+**Generalizing this, if x is a 2-D array, how do I refer to a subset of x determined by specified row and column indices?**
+
+To refer to a subset of a 2-D array `x` determined by specified row and column indices, you can use array sections along both dimensions. Here's an example:
+
+```fortran
+x([2, 3], [1, 3, 4])
+```
+
+In this example, the array section `x([2, 3], [1, 3, 4])` selects rows 2 and 3 and columns 1, 3, and 4 of `x`. The resulting array section will have the values of the selected elements from `x`. 
+
+You can use this array section in assignments, computations, or any other operations involving the selected subset of `x`.
+
+---
 **If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
 
 Here's an example program in Fortran that calculates the sum, product, minimum, maximum, and positions of the smallest and largest elements in an array:
