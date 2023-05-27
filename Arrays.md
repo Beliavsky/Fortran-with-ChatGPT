@@ -191,6 +191,14 @@ In this example, the array section `x([2, 3], [1, 3, 4])` selects rows 2 and 3 a
 You can use this array section in assignments, computations, or any other operations involving the selected subset of `x`.
 
 ---
+**How do I get the elements of array x satisfying a condition, for example being positive?**
+
+ChatGPT gives a wrong answer. The right answer is to use `pack` intrinsic function, as in the expression
+```
+pack(x, mask = x > 0)
+```
+
+---
 **If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
 
 Here's an example program in Fortran that calculates the sum, product, minimum, maximum, and positions of the smallest and largest elements in an array:
