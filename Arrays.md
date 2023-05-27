@@ -406,3 +406,25 @@ end program array_bounds
 
 In this example, the `LBOUND` function is used to obtain the lower bounds of `x` along each dimension (`dim=1`, `dim=2`, `dim=3`), and the `UBOUND` function is used to obtain the upper bounds. **Note:** `LBOUND` and `UBOUND` without a `dim` argument return arrays containing the lower and upper bounds along the dimensions.
 
+---
+**What is the most concise way to print all the elements of an array in a single statement? In what order will the elements be printed?**
+
+Here's an example of how you can achieve this concisely:
+
+```fortran
+program print_array
+    implicit none
+    integer :: i, j
+    integer, parameter :: n = 3, m = 4
+    integer :: array(n, m)    
+
+    ! Assign values to the array
+    array = reshape([((i+j, i=1,n), j=1,m)], shape(array))
+  
+    ! Print the elements of the array in a single statement
+    print *, array
+    
+end program print_array
+```
+
+In this example, `print *, array` will print all the elements of the array in a single statement. The elements will be printed column-wise from top to bottom, following the column-major storage order.
