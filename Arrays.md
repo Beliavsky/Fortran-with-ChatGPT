@@ -152,3 +152,41 @@ print*, 'Every second element from 3 to 9: ', myArray(3:9:2)
 This statement prints elements 3, 5, 7, and 9 of `myArray`.
 
 Array sections are a powerful tool for writing concise and efficient Fortran code, especially when working with large, multidimensional arrays. However, it's important to remember that, like any tool, they should be used judiciously and with an understanding of their potential impact on performance.
+
+---
+**If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
+
+Here's an example program in Fortran that calculates the sum, product, minimum, maximum, and positions of the smallest and largest elements in an array:
+
+```Fortran
+program array_operations
+    implicit none
+    
+    real, dimension(4) :: x = [20.0, 30.0, 40.0, 10.0]
+    real :: sum_x, product_x
+    real :: min_x, max_x
+    integer :: min_index, max_index
+    
+    ! Calculate the sum of the array
+    sum_x = sum(x)
+    
+    ! Calculate the product of the array
+    product_x = product(x)
+    
+    ! Find the minimum and its position
+    min_x = minval(x)
+    min_index = minloc(x, dim=1) ! Initially ChatGPT-4 forgot the dim argument and the program did not compile
+    
+    ! Find the maximum and its position
+    max_x = maxval(x)
+    max_index = maxloc(x, dim=1)
+    
+    ! Print the results
+    write(*, *) "Array:", x
+    write(*, *) "Sum:", sum_x
+    write(*, *) "Product:", product_x
+    write(*, *) "Minimum:", min_x, "at position", min_index
+    write(*, *) "Maximum:", max_x, "at position", max_index
+    
+end program array_operations
+```
