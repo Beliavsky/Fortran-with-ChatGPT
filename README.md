@@ -78,6 +78,27 @@ To resolve this issue, you can try one of the following:
 Make sure that you have installed gfortran correctly and that the installation directory is added to your system's PATH environment variable.
 
 ---
+**How do I add gfortran to my system's PATH?**
+
+To add gfortran to your system's PATH on Windows, you can follow these steps:
+
+1. Open the Start menu and search for "Environment Variables" and select "Edit the system environment variables" (or "Environment Variables" if you are using an older version of Windows).
+
+2. In the System Properties window, click the "Environment Variables" button.
+
+3. In the Environment Variables window, locate the "Path" variable under the "System variables" section and select it.
+
+4. Click the "Edit" button to modify the "Path" variable.
+
+5. In the Edit Environment Variable window, click the "New" button and enter the directory path where gfortran is installed. Typically, it is something like `C:\MinGW\bin` or `C:\Program Files\mingw-w64\mingw64\bin`, depending on your installation.
+
+6. Click "OK" to close all the windows.
+
+After adding gfortran to the system's PATH, you should be able to run the `gfortran` command from any directory in the command prompt without specifying the full path to the executable.
+
+Note that you may need to open a new command prompt window for the changes to take effect.
+
+---
 **What will be the name of the executable if you compile with `gfortran helloworld.f90` on Linux and on Windows?**
 
 When you compile a Fortran source file `helloworld.f90` with `gfortran helloworld.f90` on Linux, the resulting executable will be named `a.out` by default, as mentioned earlier.
