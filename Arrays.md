@@ -288,3 +288,36 @@ myColumn = myArray(:, 3)
 In this example, `myArray(:, 3)` refers to the third column of `myArray`. The `:` operator is used to select all elements along the first (row) dimension, so `myArray(:, 3)` includes all rows of the third column.
 
 Remember that Fortran is a column-major language, which means that the first index is the row index, and the second index is the column index. This is the opposite of row-major languages like C and Python.
+
+---
+**How do I compute the sum of each column of an array, or the sum of each row?**
+
+To compute the sum of each column or each row of an array in Fortran, you can use the intrinsic function `SUM` with appropriate dimensions specified.
+
+To compute the sum of each column, you can use the `SUM` function along with the `DIM` argument set to 1. Here's an example:
+
+```fortran
+integer, dimension(3, 4) :: matrix
+integer, dimension(4) :: column_sum
+
+! ... Initialize matrix with values ...
+
+! Compute the sum of each column
+column_sum = SUM(matrix, dim=1)
+```
+
+In this example, `matrix` is a 2D array with dimensions 3 and 4. The `SUM` function is used with `dim=1` to calculate the sum along the first dimension (columns), resulting in a 1D array `column_sum` of size 4. Each element of `column_sum` will contain the sum of the corresponding column of `matrix`.
+
+Similarly, to compute the sum of each row, you can use the `SUM` function with `dim=2`. Here's an example:
+
+```fortran
+integer, dimension(3, 4) :: matrix
+integer, dimension(3) :: row_sum
+
+! ... Initialize matrix with values ...
+
+! Compute the sum of each row
+row_sum = SUM(matrix, dim=2)
+```
+
+In this case, `SUM` is used with `dim=2` to calculate the sum along the second dimension (rows), resulting in a 1D array `row_sum` of size 3. Each element of `row_sum` will contain the sum of the corresponding row of `matrix`.
