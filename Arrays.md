@@ -245,6 +245,22 @@ integer :: myArray(3, 4)
 ```
 
 ---
+**How do I refer to a single element of a multidimensional array?**
+
+To refer to a single element of a multidimensional array in Fortran, you can use the array indices separated by commas. The general syntax is `array(index1, index2, ..., indexN)`, where `array` is the name of the array and `index1, index2, ..., indexN` are the indices corresponding to each dimension of the array.
+
+Here's an example:
+
+```fortran
+integer, dimension(3, 4) :: matrix
+matrix(2, 3) = 42  ! Assign a value to the element at row 2, column 3
+```
+
+In this example, `matrix` is a 2D array with dimensions 3 and 4. The statement `matrix(2, 3) = 42` assigns the value 42 to the element located at the second row and third column of the array.
+
+You can use the same indexing syntax to access or modify elements of multidimensional arrays in Fortran.
+
+---
 **For a 2-D array, in other words a matrix, how would I refer to a single row or column?**
 
 In Fortran, you can refer to a single row or column of a two-dimensional array (a matrix) using the colon `:` operator.
