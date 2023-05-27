@@ -243,3 +243,32 @@ In this declaration, `myArray` is a 2x2 array that is initialized with the value
 ```Fortran
 integer :: myArray(3, 4)
 ```
+
+---
+**For a 2-D array, in other words a matrix, how would I refer to a single row or column?**
+
+In Fortran, you can refer to a single row or column of a two-dimensional array (a matrix) using the colon `:` operator.
+
+Here's an example for a single row:
+
+```Fortran
+integer, dimension(3,4) :: myArray
+integer, dimension(4) :: myRow
+
+myRow = myArray(2, :)
+```
+
+In this example, `myArray(2, :)` refers to the second row of `myArray`. The `:` operator is used to select all elements along the second (column) dimension, so `myArray(2, :)` includes all columns of the second row.
+
+For a single column, you would do this:
+
+```Fortran
+integer, dimension(3,4) :: myArray
+integer, dimension(3) :: myColumn
+
+myColumn = myArray(:, 3)
+```
+
+In this example, `myArray(:, 3)` refers to the third column of `myArray`. The `:` operator is used to select all elements along the first (row) dimension, so `myArray(:, 3)` includes all rows of the third column.
+
+Remember that Fortran is a column-major language, which means that the first index is the row index, and the second index is the column index. This is the opposite of row-major languages like C and Python.
