@@ -1,6 +1,7 @@
 # Fortran-with-ChatGPT
-Questions about Fortran answered by ChatGPT
+Questions about Fortran answered by ChatGPT-4
 
+---
 **Let's write a modern Fortran tutorial. Show a "Hello World" Fortran program with a comment line and explain how to compile and run the program on Linux and Windows.**
 
 Absolutely, here is a simple Fortran "Hello World" program:
