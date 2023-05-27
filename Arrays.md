@@ -321,3 +321,20 @@ row_sum = SUM(matrix, dim=2)
 ```
 
 In this case, `SUM` is used with `dim=2` to calculate the sum along the second dimension (rows), resulting in a 1D array `row_sum` of size 3. Each element of `row_sum` will contain the sum of the corresponding row of `matrix`.
+
+---
+**What are some other intrinsic array functions with an optional DIM argument?**
+
+In addition to the `SUM` function, there are several other intrinsic array functions in Fortran that have an optional `DIM` argument. Some of the commonly used ones include:
+
+- `PRODUCT`: Calculates the product of array elements along a specified dimension.
+- `MAXVAL`: Finds the maximum value among array elements along a specified dimension.
+- `MINVAL`: Finds the minimum value among array elements along a specified dimension.
+- `COUNT`: Counts the number of elements that satisfy a specified condition along a specified dimension.
+- `ALL`: Checks if all elements satisfy a specified condition along a specified dimension.
+- `ANY`: Checks if any element satisfies a specified condition along a specified dimension.
+- `DOT_PRODUCT`: Computes the dot product of two vectors.
+
+These functions provide flexibility in performing various calculations on arrays along specific dimensions, allowing you to obtain results such as sums, products, maximum/minimum values, counts, and more.
+
+For detailed information about these functions and their usage, you can refer to the Fortran language documentation or a Fortran programming guide.
