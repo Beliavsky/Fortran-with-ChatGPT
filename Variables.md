@@ -128,3 +128,33 @@ end program InitializedVar
 
 In this program, `x` is declared as an integer and initialized to `10`. If you run this program, it will consistently print `The value of x is:  10`, because `x` is initialized before it's used.
 
+---
+**In a program to calculate the areas of circles, the radius could change, but pi will not. How can Fortran deal with that?**
+
+In Fortran, you can use a parameter to represent a constant value that doesn't change. The parameter is given a name and a value when it's declared, and it keeps that value for its entire existence.
+
+For example, you might declare a parameter for pi in a program to calculate the areas of circles:
+
+```Fortran
+program CircleArea
+    implicit none
+    ! Note: ChatGPT-4 declares pi as simply "real", which loses precision
+    real(kind=kind(1.0d0)), parameter :: pi = 3.141592653589793
+    real :: radius, area
+
+    radius = 5.0
+    area = pi * radius**2
+    print*, 'The area of the circle is: ', area
+end program CircleArea
+```
+
+In this program, `pi` is declared as a real parameter with a value of approximately `3.141592653589793`. This value can't be changed later in the program.
+
+Declaring `pi` as a parameter has several advantages:
+
+1. It makes the program easier to read and understand, because `pi` is more meaningful than `3.141592653589793`.
+
+2. It reduces the chance of errors. If you typed `3.141592653589793` every time you needed to use pi, you might mistype the number and introduce a bug into your program.
+
+3. It makes the program easier to maintain. If you decided to use a more accurate value for pi, you would only need to change the value in one place.
+
