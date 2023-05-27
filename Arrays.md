@@ -337,3 +337,32 @@ In addition to the `SUM` function, there are several other intrinsic array funct
 These functions provide flexibility in performing various calculations on arrays along specific dimensions, allowing you to obtain results such as sums, products, maximum/minimum values, counts, and more.
 
 For detailed information about these functions and their usage, you can refer to the Fortran language documentation or a Fortran programming guide.
+
+---
+**Given a possibly multidimensional array x, how do you get the size along each axis and the total size?**
+
+To get the size along each dimension and the total size of a multidimensional array `x` in Fortran, you can use the `SIZE` intrinsic function. Here's an example:
+
+```fortran
+program array_size
+    implicit none
+    
+    real, dimension(3, 4, 2) :: x
+    
+    integer :: size_dim1, size_dim2, size_dim3, total_size
+    
+    size_dim1 = size(x, dim=1)
+    size_dim2 = size(x, dim=2)
+    size_dim3 = size(x, dim=3)
+    total_size = size(x)
+    
+    print *, "Size along dimension 1:", size_dim1
+    print *, "Size along dimension 2:", size_dim2
+    print *, "Size along dimension 3:", size_dim3
+    print *, "Total size:", total_size
+    print *, "Shape:", shape(x) ! line added by me, returns [3, 4, 2]
+end program array_size
+```
+
+In this example, the `SIZE` function is used to obtain the sizes of `x` along each dimension (`dim=1`, `dim=2`, `dim=3`) and the total size (`size(x)`). The results are then printed to the console. **Note:** the `SHAPE` function returns an array of the sizes along each dimension. 
+
