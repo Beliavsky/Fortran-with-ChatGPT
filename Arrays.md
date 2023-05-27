@@ -154,6 +154,17 @@ This statement prints elements 3, 5, 7, and 9 of `myArray`.
 Array sections are a powerful tool for writing concise and efficient Fortran code, especially when working with large, multidimensional arrays. However, it's important to remember that, like any tool, they should be used judiciously and with an understanding of their potential impact on performance.
 
 ---
+**How do I refer to an arbitrary collection of indices of an array, for example elements 2, 3, and 5 of 1-D array x?**
+
+In Fortran, you can use an array section to refer to an arbitrary collection of indices of an array. To refer to elements 2, 3, and 5 of a 1-D array `x`, you can use the following syntax:
+
+```fortran
+x([2, 3, 5])
+```
+
+This creates an array section that consists of the specified indices. The resulting array section will have the values of elements 2, 3, and 5 of `x`. You can use this array section in assignments, computations, or any other operations involving the selected elements.
+
+---
 **If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
 
 Here's an example program in Fortran that calculates the sum, product, minimum, maximum, and positions of the smallest and largest elements in an array:
