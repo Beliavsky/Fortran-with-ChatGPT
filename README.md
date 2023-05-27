@@ -2,7 +2,8 @@
 This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended and test the codes produced. This page discusses compiling. For other topics see
 
 [Variables and Order of Operations](./Variables.md)  
-[Arrays](./Arrays.md)
+[Arrays](./Arrays.md)  
+[Allocatable Arrays](./AllocatableArrays.md)  
 
 ---
 **Let's write a modern Fortran tutorial. Show a "Hello World" Fortran program with a comment line and explain how to compile and run the program on Linux and Windows.**
