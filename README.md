@@ -1,4 +1,4 @@
-# Fortran-with-ChatGPT
+# Fortran with ChatGPT
 Questions about Fortran answered by ChatGPT-4
 
 ---
