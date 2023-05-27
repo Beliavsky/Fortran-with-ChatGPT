@@ -154,6 +154,19 @@ This statement prints elements 3, 5, 7, and 9 of `myArray`.
 Array sections are a powerful tool for writing concise and efficient Fortran code, especially when working with large, multidimensional arrays. However, it's important to remember that, like any tool, they should be used judiciously and with an understanding of their potential impact on performance.
 
 ---
+**How do I refer to the elements of a 1-D array x in reverse order?**
+
+To refer to the elements of a 1-D array `x` in reverse order, you can use array sections with a negative stride. Here's an example:
+
+```fortran
+x(size(x):1:-1)
+```
+
+In this example, `x(size(x):1:-1)` creates an array section that starts from the last element of `x` and goes to the first element in reverse order. The resulting array section will contain the elements of `x` in reverse order.
+
+You can use this array section in assignments, computations, or any other operations involving the reversed elements of `x`. **Note:** if `x` has a lower bound other than 1, use `x(ubound(x):lbound(x):-1)`
+
+---
 **How do I refer to an arbitrary collection of indices of an array, for example elements 2, 3, and 5 of 1-D array x?**
 
 In Fortran, you can use an array section to refer to an arbitrary collection of indices of an array. To refer to elements 2, 3, and 5 of a 1-D array `x`, you can use the following syntax:
