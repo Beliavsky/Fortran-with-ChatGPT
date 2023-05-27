@@ -333,7 +333,6 @@ In addition to the `SUM` function, there are several other intrinsic array funct
 - `COUNT`: Counts the number of elements that satisfy a specified condition along a specified dimension.
 - `ALL`: Checks if all elements satisfy a specified condition along a specified dimension.
 - `ANY`: Checks if any element satisfies a specified condition along a specified dimension.
-- `DOT_PRODUCT`: Computes the dot product of two vectors.
 
 These functions provide flexibility in performing various calculations on arrays along specific dimensions, allowing you to obtain results such as sums, products, maximum/minimum values, counts, and more.
 
