@@ -33,6 +33,6 @@ Fortran offers a broad range of built-in mathematical functions. Here are some o
    - `max(a, b, ...)` returns the maximum of its arguments.
    - `min(a, b, ...)` returns the minimum of its arguments.
 
-Many of these functions are **elemental** and workk both scalars and arrays, computing the function for each element of the array.
+Many of these functions are **elemental** and work both scalars and arrays, computing the function for each element of the array.
 
 It's also important to note that many of these functions come in different versions for different data types.
