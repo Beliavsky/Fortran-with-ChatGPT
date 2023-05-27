@@ -138,7 +138,7 @@ For example, you might declare a parameter for pi in a program to calculate the 
 ```Fortran
 program CircleArea
     implicit none
-    ! Note: ChatGPT-4 declares pi as simply "real", which loses precision
+    ! Note: ChatGPT-4 declares pi as simply "real", which loses precision. I fixed this.
     real(kind=kind(1.0d0)), parameter :: pi = 3.141592653589793
     real :: radius, area
 
