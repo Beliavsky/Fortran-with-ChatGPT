@@ -34,3 +34,32 @@ print*, 'The third element: ', myArray(3)
 Note that Fortran, unlike some other programming languages such as C and Python, uses 1-based indexing (**Note:** this is the default, which can be overridden). That is, the first element of the array is `myArray(1)`, not `myArray(0)`.
 
 ---
+**How do you set all the values of an array to a single value?**
+
+<details>
+  <summary>After giving a wrong answer and being corrected</summary>
+
+To set all the values of an array to a single value in Fortran, you can use the intrinsic function `fill`, which fills an array with a specified value. Here's an example:
+
+```fortran
+integer, dimension(5) :: arr
+arr = fill(10, size(arr))
+```
+
+In this example, the array `arr` is declared as an integer array of size 5. The `fill` function is used to assign the value `10` to all elements of `arr`. The `size` function is used to determine the size of the array, which is then passed as the second argument to `fill`.
+
+After executing this code, all elements of the array `arr` will be set to the value `10`.
+    
+**No, you would just write "arr = 10" instead of the above. Fortran does not have an intrinsic fill() function.**
+</details>
+
+**ChatGPT-4 says**
+
+You can directly assign a single value to all elements of an array using the assignment statement, for example:
+
+```
+integer, dimension(5) :: arr
+arr = 10
+```
+
+In this example, the value `10` is assigned to all elements of the array `arr`.
