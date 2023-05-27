@@ -15,7 +15,8 @@ Here is an example of a one-dimensional array in Fortran:
 program ArrayDemo
     implicit none
     integer, dimension(5) :: myArray
-
+!   Note: the line below is equivalent
+!   integer :: myArray(5) 
     myArray = [1, 2, 3, 4, 5]
     print*, 'The array: ', myArray
 end program ArrayDemo
@@ -31,3 +32,5 @@ print*, 'The third element: ', myArray(3)
 ```
 
 Note that Fortran, unlike some other programming languages such as C and Python, uses 1-based indexing (**Note:** this is the default, which can be overridden). That is, the first element of the array is `myArray(1)`, not `myArray(0)`.
+
+---
