@@ -221,6 +221,15 @@ end program count_positive_elements
 In this example, the `x > 0.0` expression creates a logical mask indicating which elements of `x` are positive. The `count` function is then used to count the number of `True` values in the mask, which corresponds to the number of positive elements in `x`.
 
 ---
+**Given two 1-D arrays x and y of the same type, how do I concatenate them, creating a 1-D array containing the elements of x followed by those of y?**
+
+ChatGPT-4 gives a wrong answer. Concatenate `x` and `y` by putting them in an array constructor, as with
+
+```Fortran
+combined = [x, y] ! size(combined) = size(x) + size(y)
+```
+
+---
 **If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
 
 Here's an example program in Fortran that calculates the sum, product, minimum, maximum, and positions of the smallest and largest elements in an array:
