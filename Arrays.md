@@ -524,3 +524,13 @@ Let's break down the line of code:
 4. Finally, `array = reshape([...], shape(array))` assigns the reshaped array to the variable `array`, effectively populating it with the values generated in step 1.
 
 In summary, the line of code creates a two-dimensional array `array` with dimensions `n` rows and `m` columns, and populates it with values computed based on the row and column indices.
+
+---
+**What are the intrinsic functions for linear algebra?**
+
+Some commonly used intrinsic functions for linear algebra functions are
+
+   - `MATMUL(a, b)`: Computes the matrix-matrix or matrix-vector product of `a` and `b`.
+   - `DOT_PRODUCT(a, b)`: Computes the dot product of two vectors `a` and `b`.
+   - `TRANSPOSE(matrix)`: Computes the transpose of a matrix.
+
