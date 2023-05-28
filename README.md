@@ -1,11 +1,14 @@
 # Fortran with ChatGPT
-This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended and test the codes produced. When the initial code from ChatGPT does not compile, it is often able to fix the code when fed the error message from gfortran. This page discusses compiling. For other topics see
+This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended and test the codes produced. When the initial code from ChatGPT does not compile, it is often able to fix the code when fed the error message from gfortran. ChatGPT is "chatty", so some of its answers have been abbreviated.
+
+This page discusses compiling. For other topics see
 
 [Variables and Order of Operations](./Variables.md)  
 [Conditionals](./Conditionals.md)  
 [Loops](./Loops.md)  
 [Arrays](./Arrays.md)  
-[Allocatable Arrays](./AllocatableArrays.md)  
+[Allocatable Arrays](./AllocatableArrays.md)
+[Modules, Functions, and Subroutines](./Modules.md)
 
 ---
 **Let's write a modern Fortran tutorial. Show a "Hello World" Fortran program with a comment line and explain how to compile and run the program on Linux and Windows.**
