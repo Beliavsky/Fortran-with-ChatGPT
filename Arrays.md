@@ -31,7 +31,7 @@ print*, 'The first element: ', myArray(1)
 print*, 'The third element: ', myArray(3)
 ```
 
-Note that Fortran, unlike some other programming languages such as C and Python, uses 1-based indexing (**Note:** this is the default, which can be overridden). That is, the first element of the array is `myArray(1)`, not `myArray(0)`.
+Note that Fortran, unlike some other programming languages such as C and Python, uses 1-based indexing (**Note:** this is the default, which can be overridden). That is, the first element of the array is `myArray(1)`, not `myArray(0)`. **Note:** variables that are single values, not arrays, are termed **scalars**.
 
 ---
 **How do you set all the values of an array to a single value?**
