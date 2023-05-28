@@ -107,3 +107,22 @@ end program LoopDemo
 ```
 
 In this program, the `do` loop iterates over the values 1 to 5. But if `i` is equal to 3, the `cycle` statement is executed, and the loop moves on to the next iteration, skipping the `print` statement. So, this program prints the iteration number for `i` equal to 1, 2, 4, and 5, but not 3.
+
+---
+**How do loops in Fortran differ from those in C and C++?**
+
+Fortran's loops are conceptually similar to those in C and C++, but there are some differences in the syntax and behavior due to the differences in the language designs.
+
+Here are some key differences:
+
+1. **Syntax:** In C and C++, the `for` loop syntax is `for(initialization; condition; increment)`. In Fortran, the `do` loop syntax is `do variable = start, end, increment`. The increment in Fortran loop is optional and defaults to 1, while in C/C++, if not specified, there's no implicit increment.
+
+2. **Loop variable mutation:** In Fortran, changing the loop variable inside the loop is considered bad practice and does not affect the number of iterations, while in C/C++, it's possible to change the loop variable within the loop which will affect the iteration.
+
+3. **Zero iterations:** In Fortran, if the end value is less than the start value in a `do` loop, the loop body will not execute at all, i.e., it results in zero iterations. In C/C++, a `for` loop will always execute at least once unless the condition is false at the start.
+
+4. **Exit and Cycle:** Fortran has `exit` and `cycle` statements for breaking out of the loop and skipping to the next iteration respectively. C and C++ have similar keywords (`break` and `continue`).
+
+5. **Named loops:** Fortran allows you to name your loops, which is useful for nested loops where you might want to break out of or cycle not just the innermost loop, but an outer loop. C and C++ do not have an equivalent feature.
+
+Despite these differences, loops in both languages serve the same purpose: to repeatedly execute a block of code. The differences are largely due to the differing design philosophies and the different problem domains the languages are designed to address.
