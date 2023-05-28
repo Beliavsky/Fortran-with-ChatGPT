@@ -138,8 +138,6 @@ MERGE(value1, value2, mask)
 
 Here's an example that demonstrates the usage of the `MERGE` function to set `grade` to "pass" if `grade >= 70` and "fail" otherwise:
 
-Certainly! Using the `MERGE` function, we can compute the results for a vector of grades. Here's an example that demonstrates how to compute the results for grades `[65, 70, 75]` using the `MERGE` function in an elemental fashion:
-
 ```fortran
 program MergeElementalDemo
     implicit none
@@ -167,3 +165,51 @@ The program then uses a loop to print each grade and its corresponding result.
 By leveraging the elemental nature of the `MERGE` function, we can efficiently compute the results for multiple grades without needing explicit loop constructs.
 
 ---
+**Explain how the `WHERE` construct works and use it to set `grades` based on `scores` using the same rule as in the previous GradeSelector program, for `grades` = [65, 75, 85, 95].**
+
+The `WHERE` construct in Fortran provides a way to selectively assign values to an array based on a logical condition. It allows you to perform an element-wise assignment to an array using a mask that specifies which elements of the array should be updated.
+
+The general syntax of the `WHERE` construct is as follows:
+
+```fortran
+WHERE (mask)
+    array = expression
+END WHERE
+```
+
+Here's an example that demonstrates the usage of the `WHERE` construct to set `grades` based on `scores` using the same rule as in the previous `GradeSelector` program, with `grades = [65, 75, 85, 95]`:
+
+```fortran
+program WhereDemo
+    implicit none
+    integer, dimension(4) :: scores
+    character(len=1), dimension(4) :: grades
+    integer :: i
+
+    scores = [65, 75, 85, 95]
+
+    WHERE (scores >= 90)
+        grades = "A"
+    ELSEWHERE (scores >= 80)
+        grades = "B"
+    ELSEWHERE (scores >= 70)
+        grades = "C"
+    ELSEWHERE
+        grades = "F"
+    END WHERE
+
+    do i = 1, size(scores)
+        print*, "Score:", scores(i)
+        print*, "Grade:", grades(i)
+    end do
+
+end program WhereDemo
+```
+
+In this example, the `scores` array contains the scores `[65, 75, 85, 95]`. The `WHERE` construct is used to conditionally assign values to the `grades` array based on the scores.
+
+If a score is greater than or equal to 90, the corresponding grade is set to 95. If it's between 80 and 89, the grade is set to 85. If it's between 70 and 79, the grade is set to 75. And for any score below 70, the grade is set to 65.
+
+The program then uses a loop to print each score and its corresponding grade.
+
+The `WHERE` construct provides a concise and efficient way to assign values to an array based on logical conditions, making it particularly useful when dealing with element-wise operations.
