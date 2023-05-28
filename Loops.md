@@ -143,6 +143,56 @@ end program main
 If `n` is 5, the loop will execute 5 times, and the value of `i` printed after the loop will be 6.
 
 ---
+
+---
+**How do nested loops work? If you use an exit statement in a nested loop, how do you control which loop you exit?**
+
+Nested loops in Fortran work similarly to nested loops in most other programming languages. In a nested loop, one loop (the inner loop) is contained within another loop (the outer loop). Each time through the outer loop, the inner loop goes through all its iterations.
+
+Here's a simple example:
+
+```Fortran
+program NestedLoopDemo
+    implicit none
+    integer :: i, j
+
+    do i = 1, 3
+        do j = 1, 3
+            print*, 'i = ', i, ', j = ', j
+        end do
+    end do
+
+end program NestedLoopDemo
+```
+
+In this program, there are two loops. The outer loop (controlled by `i`) goes from 1 to 3. Each time through the outer loop, the inner loop (controlled by `j`) also goes from 1 to 3. So, the `print` statement is executed 9 times in total, with each combination of `i` and `j`.
+
+To control which loop is exited when an `exit` statement is encountered, you can use named loops. A named loop is a loop that has a name assigned to it. You can exit a named loop from within a nested loop by using the `exit` statement followed by the name of the loop.
+
+Here's an example:
+
+```Fortran
+program NamedLoopDemo
+    implicit none
+    integer :: i, j
+
+    outerLoop: do i = 1, 3
+        innerLoop: do j = 1, 3
+            if (j == 2) then
+                exit outerLoop
+            end if
+            print*, 'i = ', i, ', j = ', j
+        end do innerLoop
+    end do outerLoop
+
+end program NamedLoopDemo
+```
+
+In this program, the loops are named `outerLoop` and `innerLoop`. When `j` equals 2, the `exit outerLoop` statement is executed, which exits the outer loop prematurely. So, the `print` statement is only executed for `i` equals 1, and `j` equals 1.
+
+Without a loop name after the `exit` statement, the program would only exit the inner loop, not the outer loop. This is the value of named loops when dealing with nested loops and complex loop control.
+
+---
 **How do loops in Fortran differ from those in C and C++?**
 
 Fortran's loops are conceptually similar to those in C and C++, but there are some differences in the syntax and behavior due to the differences in the language designs.
