@@ -124,3 +124,46 @@ In this example, the `SELECT CASE` construct is used to determine the `grade` ba
 - If none of the above cases match (i.e., the `score` is below 70 or greater than 90), the `grade` is set to "F" using the `CASE DEFAULT`.
 
 After the `SELECT CASE` construct, the program prints the `score` and the corresponding `grade` to verify the result.
+
+---
+**Explain the how the `MERGE` function works and use it to set `result` to "pass" if `grade >= 70` and "fail" otherwise. Use the fact that MERGE is elemental to compute the results for grades = [65, 70, 75].**
+
+The `MERGE` function in Fortran provides a way to selectively combine or merge two values based on a logical condition. It takes three arguments: two values and a logical mask. If the logical mask is `.TRUE.`, the first value is selected; otherwise, the second value is selected.
+
+The general syntax of the `MERGE` function is as follows:
+
+```fortran
+MERGE(value1, value2, mask)
+```
+
+Here's an example that demonstrates the usage of the `MERGE` function to set `grade` to "pass" if `grade >= 70` and "fail" otherwise:
+
+Certainly! Using the `MERGE` function, we can compute the results for a vector of grades. Here's an example that demonstrates how to compute the results for grades `[65, 70, 75]` using the `MERGE` function in an elemental fashion:
+
+```fortran
+program MergeElementalDemo
+    implicit none
+    integer, dimension(3) :: grades
+    character(len=4), dimension(3) :: results
+    integer :: i
+    
+    grades = [65, 70, 75]
+    results = MERGE("fail", "pass", grades >= 70)
+
+    do i = 1, size(grades)
+        print*, "Grade:", grades(i)
+        print*, "Result:", results(i)
+    end do
+
+end program MergeElementalDemo
+```
+
+In this example, the `grades` array contains the grades `[65, 70, 75]`. By applying the `MERGE` function element-wise on the `grades >= 70` condition, we merge the values "fail" and "pass" based on each grade's eligibility.
+
+The resulting values are stored in the `results` array, where "fail" is selected for grades below 70, and "pass" is selected for grades 70 or higher.
+
+The program then uses a loop to print each grade and its corresponding result.
+
+By leveraging the elemental nature of the `MERGE` function, we can efficiently compute the results for multiple grades without needing explicit loop constructs.
+
+---
