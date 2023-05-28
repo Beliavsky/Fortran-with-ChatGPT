@@ -2,6 +2,7 @@
 This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended and test the codes produced. When the initial code from ChatGPT does not compile, it is often able to fix the code when fed the error message from gfortran. This page discusses compiling. For other topics see
 
 [Variables and Order of Operations](./Variables.md)  
+[Conditionals](./Conditionals.md)  
 [Loops](./Loops.md)  
 [Arrays](./Arrays.md)  
 [Allocatable Arrays](./AllocatableArrays.md)  
