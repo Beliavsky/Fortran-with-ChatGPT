@@ -244,7 +244,7 @@ Short-circuit evaluation helps improve efficiency and avoid potential errors in 
 
 **ChatGPT-4 says**
 
-Apologies for the incorrect information provided earlier. You are correct. In Fortran, the standard does not guarantee short-circuit evaluation for logical expressions. Therefore, it is safer to explicitly separate the conditions and use separate `IF` statements for each condition to ensure the desired behavior. Here is the corrected code:
+In Fortran, the standard does not guarantee short-circuit evaluation for logical expressions. Therefore, it is safer to explicitly separate the conditions and use separate `IF` statements for each condition to ensure the desired behavior. Here is the corrected code:
 
 ```fortran
 if (i > 0) then
