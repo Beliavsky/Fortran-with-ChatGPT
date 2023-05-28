@@ -174,6 +174,8 @@ The general syntax of the `WHERE` construct is as follows:
 ```fortran
 WHERE (mask)
     array = expression
+[ELSEWHERE (mask)]
+    array = expression
 END WHERE
 ```
 
