@@ -53,3 +53,22 @@ In this code, the variable `i` is looped from -1 through 1 using a `do` loop. In
 When you run this program, it will print the corresponding messages for each value of `i`, covering all three cases.
 
 ---
+**Explain how the one-line-if statement works and give an example that prints "i is positive" when `i` > 0.**
+
+The general syntax for a one-line conditional statement using the `if` statement in Fortran is:
+
+```fortran
+if (condition) action
+```
+
+A line that prints "i is positive" when `i` is greater than 0 is
+
+```fortran
+if (i > 0) print*, "i is positive"
+```
+
+In this example, the `if` statement checks if `i` is greater than 0. If the condition is true, it executes the `print` statement and prints "i is positive". Since the `if` statement is used as a single line, the action to be taken is specified right after the `if` statement.
+
+This approach provides a concise way to conditionally execute a single statement in Fortran when the condition is met.
+
+---
