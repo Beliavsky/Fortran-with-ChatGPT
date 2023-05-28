@@ -148,7 +148,7 @@ program MergeElementalDemo
     integer :: i
     
     grades = [65, 70, 75]
-    results = MERGE("fail", "pass", grades >= 70)
+    results = MERGE("pass", "fail", grades >= 70)
 
     do i = 1, size(grades)
         print*, "Grade:", grades(i)
