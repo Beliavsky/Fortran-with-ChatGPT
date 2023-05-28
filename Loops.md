@@ -143,8 +143,6 @@ end program main
 If `n` is 5, the loop will execute 5 times, and the value of `i` printed after the loop will be 6.
 
 ---
-
----
 **How do nested loops work? If you use an exit statement in a nested loop, how do you control which loop you exit?**
 
 Nested loops in Fortran work similarly to nested loops in most other programming languages. In a nested loop, one loop (the inner loop) is contained within another loop (the outer loop). Each time through the outer loop, the inner loop goes through all its iterations.
