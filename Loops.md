@@ -126,3 +126,22 @@ Here are some key differences:
 5. **Named loops:** Fortran allows you to name your loops, which is useful for nested loops where you might want to break out of or cycle not just the innermost loop, but an outer loop. C and C++ do not have an equivalent feature.
 
 Despite these differences, loops in both languages serve the same purpose: to repeatedly execute a block of code. The differences are largely due to the differing design philosophies and the different problem domains the languages are designed to address.
+
+---
+**In Python with NumPy, R, and Matlab, you are advised to favor array operations over loops for speed. What about in Fortran? Do you have advice on using loops efficiently?**
+
+In Fortran, the situation is somewhat different than in interpreted languages like Python and R or environments like MATLAB. These environments often advocate for "vectorized" operations (i.e., operations on entire arrays) because loops in these languages tend to be slow due to their interpreted nature. In Fortran, a compiled language, loops are highly optimized by the compiler and are typically fast. 
+
+However, Fortran also supports array operations (also known as "array programming" or "vectorization"), which allow you to operate on whole arrays at once without writing explicit loops. These can be easier to read and write, and can sometimes be faster due to exploiting low-level optimizations and parallelism. 
+
+In general, efficient usage of loops and arrays in Fortran often comes down to a few principles:
+
+1. **Understand Your Compiler:** Modern Fortran compilers can often optimize loops very effectively, particularly if you enable the appropriate optimization flags. Understanding how your compiler optimizes code can help you write more efficient loops.
+
+2. **Exploit Array Operations Where Possible:** While loops are efficient in Fortran, array operations can be more readable and can sometimes be faster due to low-level optimizations and parallel processing.
+
+3. **Access Patterns:** When dealing with multi-dimensional arrays, try to access data in a manner that's consistent with the array's storage order in memory. Fortran uses column-major ordering, meaning it stores multi-dimensional arrays in a way where the first index changes fastest. 
+
+4. **Parallelism:** Modern Fortran has built-in support for parallelism, both via shared-memory parallelism (OpenMP) and distributed-memory parallelism (MPI). If you have a high-performance computing system available, you can use these features to spread your loop iterations over multiple processors or cores.
+
+Remember, the best approach can depend heavily on the specific problem you're trying to solve, the specific compiler you're using, and the specific system you're running on. When in doubt, profiling your code to see where the performance bottlenecks actually are can be very helpful.
