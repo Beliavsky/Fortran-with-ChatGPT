@@ -109,6 +109,40 @@ end program LoopDemo
 In this program, the `do` loop iterates over the values 1 to 5. But if `i` is equal to 3, the `cycle` statement is executed, and the loop moves on to the next iteration, skipping the `print` statement. So, this program prints the iteration number for `i` equal to 1, 2, 4, and 5, but not 3.
 
 ---
+**For a loop**
+```
+do i=1,n
+   ...
+end do
+print*,i
+```
+**what value will be printed for i if the loop is not exited early?**
+
+If the loop is not exited early and completes all iterations, the value of `i` printed after the loop will be the value of `n + 1`. 
+
+In a Fortran `do` loop, the loop variable (`i` in this case) is incremented after each iteration until it reaches the value specified in the `do` statement. When the loop condition evaluates to false, the loop is terminated, and the loop variable takes on the next value after the loop condition becomes false. In this case, the loop variable `i` will be incremented to `n + 1` before the loop terminates, and that will be the value printed after the loop.
+
+Here's an example to illustrate this behavior:
+
+```fortran
+program main
+  implicit none
+  integer :: i, n
+
+  n = 5
+
+  do i = 1, n
+    ! Loop body
+  end do
+
+  print*, i  ! Prints n + 1
+
+end program main
+```
+
+If `n` is 5, the loop will execute 5 times, and the value of `i` printed after the loop will be 6.
+
+---
 **How do loops in Fortran differ from those in C and C++?**
 
 Fortran's loops are conceptually similar to those in C and C++, but there are some differences in the syntax and behavior due to the differences in the language designs.
