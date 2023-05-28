@@ -228,6 +228,7 @@ ChatGPT-4 gives a wrong answer. Concatenate `x` and `y` by putting them in an ar
 ```Fortran
 combined = [x, y] ! size(combined) = size(x) + size(y)
 ```
+This also works if `x` or `y`, or both, are scalars.
 
 ---
 **If I have an array of data, say x = [20.0, 30.0, 40.0, 10.0], how do I calculate things like the sum, product, minimum, or maximum of the array? How do I find the positions of the smallest and largest elements? Illustrate with one program.**
