@@ -117,7 +117,7 @@ Here are some key differences:
 
 1. **Syntax:** In C and C++, the `for` loop syntax is `for(initialization; condition; increment)`. In Fortran, the `do` loop syntax is `do variable = start, end, increment`. The increment in Fortran loop is optional and defaults to 1, while in C/C++, if not specified, there's no implicit increment.
 
-2. **Loop variable mutation:** In Fortran, changing the loop variable inside the loop is considered bad practice and does not affect the number of iterations, while in C/C++, it's possible to change the loop variable within the loop which will affect the iteration.
+2. **Loop variable mutation:** In Fortran, changing the loop variable inside the loop is considered bad practice (**Note:** it violates the Fortran standard) and does not affect the number of iterations, while in C/C++, it's possible to change the loop variable within the loop which will affect the iteration.
 
 3. **Zero iterations:** In Fortran, if the end value is less than the start value in a `do` loop, the loop body will not execute at all, i.e., it results in zero iterations. In C/C++, a `for` loop will always execute at least once unless the condition is false at the start.
 
