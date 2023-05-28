@@ -215,3 +215,47 @@ If a score is greater than or equal to 90, the corresponding grade is set to 95.
 The program then uses a loop to print each score and its corresponding grade.
 
 The `WHERE` construct provides a concise and efficient way to assign values to an array based on logical conditions, making it particularly useful when dealing with element-wise operations.
+
+---
+**Does Fortran short circuit when evaluating logical expressions? For example, for array `x` with lower bound of 1, is it safe to write**
+```
+if (i > 0 .and. x(i) > 0) print*,"for i =", i, " x(i) is positive"
+```
+
+<details>
+  <summary>After giving a wrong answer and being corrected</summary>
+    
+In Fortran, logical expressions are evaluated using short-circuit evaluation. Short-circuit evaluation means that the logical operators `AND` and `OR` do not evaluate the second operand if the result can be determined solely based on the value of the first operand.
+
+In your example code:
+
+```fortran
+if (i > 0 .and. x(i) > 0) print*,"for i =", i, " x(i) is positive"
+```
+
+The `AND` operator will short-circuit if `i > 0` is `FALSE` because the entire expression will be `FALSE` regardless of the value of `x(i)`. This means that if `i` is not greater than 0, the evaluation will stop at that point, and the condition `x(i) > 0` will not be evaluated.
+
+Therefore, it is safe to write the code as shown. If `i > 0` is `FALSE`, the condition `x(i) > 0` will not be evaluated, preventing any potential issues with accessing `x(i)` when `i` is out of bounds or undefined.
+
+Short-circuit evaluation helps improve efficiency and avoid potential errors in cases where the evaluation of the second operand is unnecessary based on the result of the first operand.
+    
+**This is wrong. You cannot count on short-circuiting.**
+</details>
+
+**ChatGPT-4 says**
+
+Apologies for the incorrect information provided earlier. You are correct. In Fortran, the standard does not guarantee short-circuit evaluation for logical expressions. Therefore, it is safer to explicitly separate the conditions and use separate `IF` statements for each condition to ensure the desired behavior. Here is the corrected code:
+
+```fortran
+if (i > 0) then
+    if (x(i) > 0) then
+        print*,"for i =", i, " x(i) is positive"
+    end if
+end if
+```
+
+By separating the conditions into individual `IF` statements, you can ensure that the second condition is only evaluated when the first condition is satisfied.
+
+    
+    
+
