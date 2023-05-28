@@ -7,7 +7,7 @@ This page discusses compiling. For other topics see
 [Conditionals](./Conditionals.md)  
 [Loops](./Loops.md)  
 [Arrays](./Arrays.md)  
-[Allocatable Arrays](./AllocatableArrays.md)
+[Allocatable Arrays](./AllocatableArrays.md)  
 [Modules, Functions, and Subroutines](./Modules.md)
 
 ---
