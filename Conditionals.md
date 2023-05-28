@@ -72,3 +72,55 @@ In this example, the `if` statement checks if `i` is greater than 0. If the cond
 This approach provides a concise way to conditionally execute a single statement in Fortran when the condition is met.
 
 ---
+**Explain how the `SELECT CASE` construct works and show a `SELECT CASE` construct that sets the `grade` to "A" when `score` >= 90, "B" when 80 <= `score` < 90, "C" when 70 <= `score` < 80, and "F" otherwise.**
+
+The `SELECT CASE` construct in Fortran provides a way to perform multiple conditional checks on a single expression. It allows you to specify different actions to be taken based on the value of the expression. The general syntax of the `SELECT CASE` construct is as follows:
+
+```fortran
+SELECT CASE (expression)
+    CASE (value1)
+        ! Code block executed when expression matches value1
+    CASE (value2)
+        ! Code block executed when expression matches value2
+    ...
+    CASE DEFAULT
+        ! Code block executed when no other cases match
+END SELECT
+```
+
+The `CASE DEFAULT` is optional and serves as a fallback when none of the specified cases match the value of the expression. It ensures that there is a code block to execute even if no other cases match.
+
+The `SELECT CASE` construct provides a structured and readable way to handle multiple conditional checks in Fortran, particularly when dealing with a large number of cases or ranges of values.
+
+Here's an example that uses the `SELECT CASE` construct to set the `grade` based on the given score:
+
+```fortran
+program GradeSelector
+    implicit none
+    integer :: score
+    character(len=1) :: grade
+
+    do score = 65, 95, 10
+       SELECT CASE (score)
+          CASE (90:)
+             grade = "A"
+          CASE (80:89)
+             grade = "B"
+          CASE (70:79)
+             grade = "C"
+          CASE DEFAULT
+             grade = "F"
+       END SELECT
+       print*, "score, grade = ", score, grade
+    end do
+end program GradeSelector
+```
+
+In this example, the `SELECT CASE` construct is used to determine the `grade` based on the value of the `score`. The different cases cover the given score ranges:
+
+- If `score` is 90 or greater, the `grade` is set to "A".
+- If `score` is between 80 and 89 (inclusive), the `grade` is set to "B".
+- If `score` is between 70 and 79 (inclusive), the `grade` is set to "C".
+- If none of the above cases match (i.e., the `score` is below 70 or greater than 90), the `grade` is set to "F" using the `CASE DEFAULT`.
+
+After the `SELECT CASE` construct, the program prints the `score` and the corresponding `grade` to verify the result.
