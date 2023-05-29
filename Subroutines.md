@@ -322,3 +322,53 @@ end program main
 ```
 
 In this example, `radii` is passed to the `calculate_circle` subroutine along with empty arrays `circumferences` and `areas` of the same size. The subroutine fills these arrays with the corresponding circumferences and areas, and then you can use them as needed in the main program.
+
+---
+**Let's illustrate the use of an intent(in out) argument. Write a `standardize` subroutine with an argument** 
+```
+intent(in out) :: x(:)
+```
+**that shifts and scales x so that it has mean zero and variance one.**
+
+Certainly! Here's an example of the `standardize` subroutine that uses an `intent(in out)` argument to modify the `x` array in-place:
+
+```fortran
+module StandardizeModule
+  implicit none
+
+contains
+
+  subroutine standardize(x)
+    real, intent(in out) :: x(:)
+    real :: mean, variance
+
+    mean = sum(x) / size(x)
+    variance = sum((x - mean)**2) / size(x)
+
+    x = (x - mean) / sqrt(variance)
+
+  end subroutine standardize
+
+end module StandardizeModule
+```
+
+In this subroutine, the `x` array is passed with the `intent(in out)` attribute, which allows it to be both read from and written to within the subroutine. The subroutine calculates the mean and variance of the array `x` and then modifies `x` in-place by subtracting the mean and dividing by the square root of the variance.
+
+You can call this subroutine from the main program like this:
+
+```fortran
+program main
+  use StandardizeModule
+  implicit none
+
+  real :: values(5) = [1.0, 2.0, 3.0, 4.0, 5.0]
+
+  call standardize(values)
+
+  print *, "Standardized values:", values
+  ! Line below added by me to check standardization
+  print *,[sum(values), sum(values**2)] / size(values)
+end program main
+```
+
+This program passes an array `values` to the `standardize` subroutine, which modifies it in-place. After the subroutine call, the program prints the standardized values of the `values` array.
