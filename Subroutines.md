@@ -219,7 +219,7 @@ Here's how assumed-shape array arguments work:
 Assumed-shape array arguments provide flexibility in handling arrays of different sizes and shapes without the need for explicit size or shape declarations. They are particularly useful when the size of the array is determined at runtime or when working with sections of larger arrays.
 
 ---
-**Rewrite the previous subroutine calculate_circle to take an assumed-shape argument.**
+**Rewrite the previous subroutine `calculate_circle` to take an assumed-shape argument.**
 
 Here's the revised version of the `calculate_circle` subroutine that takes an assumed-shape array argument:
 
