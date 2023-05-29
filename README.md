@@ -1,5 +1,5 @@
 # Fortran with ChatGPT
-This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended and test the codes produced. When the initial code from ChatGPT does not compile, it is often able to fix the code when fed the error message from gfortran. ChatGPT is "chatty", so some of its answers have been abbreviated.
+This is a Fortran tutorial, with my questions, in bold, answered by ChatGPT-4. I add a **Note** when I think an answer needs to be amended, and I test the codes produced. When the initial code from ChatGPT does not compile, it is often able to fix the code when fed the error message from gfortran. ChatGPT is "chatty", so some of its answers have been abbreviated.
 
 This page discusses compiling. For other topics see
 
