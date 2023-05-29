@@ -282,3 +282,49 @@ print*, "Volume is ", cylinder_volume(radius=3.0, 5.0)
 This would result in a compile error because the positional argument `5.0` appears after the keyword argument `radius=3.0`.
 
 So, you can mix positional and keyword arguments, but remember to always place positional arguments before keyword arguments.
+
+---
+**How does a function with `optional` arguments work?**
+
+A function with `optional` arguments allows you to define arguments that are not required to be provided when calling the function. These arguments have default values assigned to them, which are used if the caller does not provide a value for that particular argument.
+
+Here's an example of a function with optional arguments and a main program that demonstrates different ways of calling it:
+
+```fortran
+module math_module
+    implicit none
+
+contains
+
+    function power(base, exponent, scale) result(result)
+        real, intent(in) :: base, exponent
+        real, optional :: scale
+        real :: result
+
+        if (present(scale)) then
+            result = scale * base**exponent
+        else
+            result = base**exponent
+        end if
+    end function power
+
+end module math_module
+
+program main
+    use math_module
+    implicit none
+
+    real :: result
+
+    ! Call the power function without providing the scale argument
+    result = power(2.0, 3.0)
+    print*, "Result without scale argument:", result
+
+    ! Call the power function with the scale argument
+    result = power(2.0, 3.0, 10.0)
+    print*, "Result with scale argument:", result
+
+end program main
+```
+
+In this code, the `power` function is defined within the `math_module` module. The main program uses the `use` statement to access the function. The `power` function can be called with or without providing the `scale` argument, and the results are printed in the main program.
