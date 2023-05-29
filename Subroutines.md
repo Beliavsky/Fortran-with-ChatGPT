@@ -118,3 +118,49 @@ end program main
 ```
 
 In this updated code, the `calculate_circle` subroutine has been declared as elemental. It can now accept an array of radii as input and return the corresponding circumferences and areas as arrays. The `radii`, `circumference`, and `area` variables in the main program are now declared as arrays to accommodate the multiple values. The `calculate_circle` subroutine is then called with the `radii` array, and the resulting `circumference` and `area` arrays are printed.
+
+---
+**Change the subroutine so that it does not pass circumference and area back as arguments but prints their values, and call it from the main program.**
+
+To modify the `calculate_circle` subroutine to print the circumference and area values instead of passing them back as arguments, we can update the code as follows:
+
+```fortran
+module CircleModule
+    implicit none
+
+    contains
+! ChatGPT-4 initially fails to include the "impure" attribute
+    impure elemental subroutine calculate_circle(radius)
+        real, intent(in) :: radius
+        real, parameter :: pi = 3.14159
+        real :: circumference, area
+
+        ! Calculate circumference
+        circumference = 2.0 * pi * radius
+
+        ! Calculate area
+        area = pi * radius**2
+
+        ! Print the circumference and area
+        print*, "Circumference for radius", radius, ":", circumference
+        print*, "Area for radius", radius, ":", area
+    end subroutine calculate_circle
+
+end module CircleModule
+
+program main
+    use CircleModule
+    implicit none
+
+    real :: radii(2)
+
+    ! Set the radii
+    radii = [10.0, 100.0]
+
+    ! Call the elemental subroutine to calculate and print the circle properties
+    call calculate_circle(radii)
+
+end program main
+```
+
+In this updated code, the `calculate_circle` subroutine now directly prints the circumference and area values instead of passing them back as arguments. The subroutine receives the radius as an input and performs the calculations accordingly. The `calculate_circle` subroutine is called from the main program with the `radii` array, and it prints the circumference and area for each radius value.
