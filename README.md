@@ -8,7 +8,8 @@ This page discusses compiling. For other topics see
 [Loops](./Loops.md)  
 [Arrays](./Arrays.md)  
 [Allocatable Arrays](./AllocatableArrays.md)  
-[Modules and Functions](./Modules.md)
+[Modules and Functions](./Modules.md)  
+[Subroutines](./Subroutines.md)
 
 ---
 **Let's write a modern Fortran tutorial. Show a "Hello World" Fortran program with a comment line and explain how to compile and run the program on Linux and Windows.**
