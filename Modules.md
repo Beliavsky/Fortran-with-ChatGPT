@@ -77,12 +77,15 @@ module cylinder_mod
     
     contains
     
-    function cylinder_volume(radius, height) result(volume)
-        real :: radius, height, volume
-        real, parameter :: pi = 3.14159
-        
-        volume = pi * radius**2 * height
-    end function cylinder_volume
+function cylinder_volume(radius, height) result(volume)
+    real, intent(in) :: radius, height
+    real             :: volume
+    real, parameter :: pi = 3.14159
+    
+    volume = pi * radius**2 * height
+end function cylinder_volume
+    
+
     
 end module cylinder_mod
 
