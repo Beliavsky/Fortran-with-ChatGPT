@@ -164,3 +164,14 @@ end program main
 ```
 
 In this example, the `cylinder_volume` function is declared as elemental by adding the `elemental` attribute to the function declaration. This allows us to pass an array of heights to the function and compute the corresponding volumes for each element individually. The resulting volumes are stored in the `volumes` array, which is then printed.
+
+---
+**What conditions must a function satisfy to be declare elemental?**
+
+To declare a function as elemental in Fortran, it must satisfy the following conditions:
+
+1. The function must have scalar arguments, meaning that each argument is a scalar variable.
+2. The function should not have any side effects or modify variables in the global state. It can only depend on the values of its arguments and other variables that are not modified within the function.
+3. The function should return a scalar result, meaning that the result is a single value.
+
+By satisfying these conditions, the function can be called with array arguments, and it will operate element-wise on the arrays, returning a result array of the same shape.
