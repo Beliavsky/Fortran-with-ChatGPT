@@ -196,3 +196,33 @@ To declare a function as elemental in Fortran, it must satisfy the following con
 3. The function should return a scalar result, meaning that the result is a single value.
 
 By satisfying these conditions, the function can be called with array arguments, and it will operate element-wise on the arrays, returning a result array of the same shape.
+
+---
+**Add an elemental function that computes the volume of a sphere to the previous module. Define pi as a module-level parameter and use it in both functions. Rename the module appropriately.**
+
+Here's an updated version of the module, now renamed as `geometry_mod`, that includes an elemental function `sphere_volume` to compute the volume of a sphere using the module-level parameter `pi`:
+
+```fortran
+module geometry_mod
+    implicit none
+    private
+    public :: cylinder_volume, sphere_volume
+    real, parameter :: pi = 3.14159
+    contains
+
+    elemental function cylinder_volume(radius, height) result(volume)
+        real, intent(in) :: radius, height
+        real :: volume
+        volume = pi * radius**2 * height
+    end function cylinder_volume
+
+    elemental function sphere_volume(radius) result(volume)
+        real, intent(in) :: radius
+        real :: volume
+        volume = (4.0 / 3.0) * pi * radius**3
+    end function sphere_volume
+
+end module geometry_mod
+```
+
+Now both the `cylinder_volume` and `sphere_volume` functions in the `geometry_mod` module can access the module-level parameter `pi`.
