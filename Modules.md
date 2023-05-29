@@ -105,3 +105,16 @@ end program main
 ```
 
 In this example, the module `cylinder_mod` contains the function `cylinder_volume`, which takes the radius and height of the cylinder as input arguments and returns the calculated volume. The module is then used in the main program, which calls the `cylinder_volume` function with specific values for the radius and height. The resulting volume is then printed to the console.
+
+---
+**The program compiles and runs without the `private` statement in the module. In general, why should  you include a `private` statement?**
+
+You are correct that including the `private` statement in a module is not strictly required for the program to compile and run. However, using the `private` statement is considered a good practice in Fortran for several reasons:
+
+1. Encapsulation: By making the module contents private, you are encapsulating the internal details of the module and preventing external access. This helps to enforce modularity and protects the module's implementation details from being inadvertently modified by other parts of the program.
+
+2. Name conflicts: The `private` statement helps to avoid potential naming conflicts between the module's entities (such as functions, subroutines, and variables) and entities with the same name in other parts of the program. It ensures that the module's contents are not inadvertently accessed or overridden outside of the module.
+
+3. Readability and maintainability: Making the module contents private communicates the intended usage and interface of the module. It clarifies which entities are meant to be accessed by other parts of the program (**Note:** those entities are declared `public`.) and which are internal implementation details. This improves the readability and maintainability of the codebase, especially in larger projects with multiple modules.
+
+While including the `private` statement is not strictly required, it is generally recommended to promote code organization, modularity, and prevent potential issues related to naming conflicts.
