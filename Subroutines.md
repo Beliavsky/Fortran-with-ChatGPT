@@ -262,3 +262,63 @@ end program main
 In this version, the `radii` argument is declared as an assumed-shape array by using empty parentheses after the `radii` variable name. Inside the subroutine, the `radii` array can be accessed and manipulated using normal array syntax. The `size` function is used to determine the size of the array.
 
 This revised subroutine allows you to calculate the circumference and area of circles for multiple radii in a single call, providing flexibility in handling arrays of different sizes.
+
+---
+**Write a `calculate_circle` subroutine that returns the circumferences and areas corresponding to the radii as assumed-shape arrays. Check that the arrays are sized consistently in the subroutine. Call the subroutine from a main program.**
+
+Here's the revised `calculate_circle` subroutine that returns the circumferences and areas as assumed-shape arrays:
+
+```fortran
+module circle_module
+  implicit none
+
+  contains
+  
+subroutine calculate_circle(radii, circumferences, areas)
+  real, intent(in) :: radii(:)
+  real, intent(out) :: circumferences(:), areas(:)
+  real, parameter :: pi = 3.14159
+  integer :: i
+
+  ! Check that the sizes of the arrays are consistent
+  if (size(radii) /= size(circumferences) .or. size(radii) /= size(areas)) then
+    print*, "Error: Array sizes are not consistent!"
+    return
+  end if
+
+  ! Calculate the circumferences and areas
+  do i = 1, size(radii)
+    circumferences(i) = 2.0 * pi * radii(i)
+    areas(i) = pi * radii(i)**2
+  end do
+end subroutine calculate_circle
+
+end module circle_module
+```
+
+In this revised version, the `radii`, `circumferences`, and `areas` arguments are declared as assumed-shape arrays using empty parentheses after the variable names. The subroutine checks if the sizes of the input and output arrays are consistent before performing the calculations. The circumferences and areas are then computed and stored in the corresponding output arrays.
+
+To call the `calculate_circle` subroutine and retrieve the calculated circumferences and areas, you can do the following:
+
+```fortran
+program main
+  use circle_module
+  implicit none
+  real :: radii(3) = [1.0, 2.0, 3.0]
+  real :: circumferences(size(radii)), areas(size(radii))
+  integer :: i
+
+  call calculate_circle(radii, circumferences, areas)
+
+  ! Print the results
+  do i = 1, size(radii)
+    print*, "Radius:", radii(i)
+    print*, "Circumference:", circumferences(i)
+    print*, "Area:", areas(i)
+    print*   ! Blank line for separation
+  end do
+
+end program main
+```
+
+In this example, `radii` is passed to the `calculate_circle` subroutine along with empty arrays `circumferences` and `areas` of the same size. The subroutine fills these arrays with the corresponding circumferences and areas, and then you can use them as needed in the main program.
