@@ -173,3 +173,47 @@ In Fortran, an `impure elemental` procedure is an elemental procedure that can h
 However, there are cases where an elemental procedure needs to have side effects, such as printing output or modifying global variables. In such cases, the `impure` attribute can be added to the elemental procedure declaration to indicate that it is impure and can have side effects.
 
 An `impure elemental` procedure allows for element-wise operations while allowing side effects within the procedure body. This can be useful in certain situations where the elemental nature of the procedure is desired, but side effects are necessary.
+
+---
+**How do assumed-shape array arguments work?**
+
+Assumed-shape array arguments in Fortran allow for more flexible array handling by allowing procedures to accept arrays of different sizes and shapes. When an array is passed as an assumed-shape argument, the procedure does not need to know the size or shape of the array in advance. Instead, it can determine the size and shape of the array dynamically based on the actual argument passed during the procedure call.
+
+Here's how assumed-shape array arguments work:
+
+1. In the procedure interface (subroutine or function), the array argument is declared with the `(:)` notation to indicate an assumed shape.
+
+   Example:
+   ```fortran
+   subroutine process_array(arr)
+       real, dimension(:) :: arr
+       ! Procedure code
+   end subroutine process_array
+   ```
+
+2. During the procedure call, you can pass an array of any size or shape as the actual argument. The actual argument can be a whole array or a section of an array.
+
+   Example:
+   ```fortran
+   real, dimension(5) :: my_array
+
+   call process_array(my_array)       ! Pass whole array
+   call process_array(my_array(2:4))  ! Pass section of array
+   ```
+
+3. Inside the procedure, you can access the size and shape of the assumed-shape array using the `SIZE` intrinsic function or by accessing the bounds of the array.
+
+   Example:
+   ```fortran
+   subroutine process_array(arr)
+       real, dimension(:) :: arr
+       integer :: size_arr
+
+       size_arr = SIZE(arr)
+       ! Code to process the array
+   end subroutine process_array
+   ```
+
+4. The procedure can perform operations on the assumed-shape array using array syntax and indexing, similar to regular arrays.
+
+Assumed-shape array arguments provide flexibility in handling arrays of different sizes and shapes without the need for explicit size or shape declarations. They are particularly useful when the size of the array is determined at runtime or when working with sections of larger arrays.
