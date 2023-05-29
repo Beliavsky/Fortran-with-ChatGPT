@@ -328,3 +328,62 @@ end program main
 ```
 
 In this code, the `power` function is defined within the `math_module` module. The main program uses the `use` statement to access the function. The `power` function can be called with or without providing the `scale` argument, and the results are printed in the main program.
+
+---
+**Can you pass an optional argument to another procedure?**
+
+When passing an optional argument to another procedure, there are two cases to consider:
+
+1. Passing the optional argument to a procedure where it is **not** optional: In this case, the optional argument must be verified as present in the caller before passing it to the procedure.
+
+2. Passing the optional argument to a procedure where it is also optional: In this case, the optional argument can be passed whether or not it is present in the caller. The argument in the callee will inherit the present status from the caller. If the argument is present in the caller, it will also be present in the callee. If the argument is not present in the caller, it will also be absent in the callee.
+
+Here's an example to illustrate both cases:
+
+```fortran
+module OptionalArgumentModule
+  implicit none
+
+contains
+
+  subroutine Caller(arg)
+    integer, optional :: arg
+
+    if (present(arg)) call NonOptionalProcedure(arg)
+    call OptionalProcedure(arg)
+  end subroutine Caller
+
+  subroutine NonOptionalProcedure(arg)
+    integer :: arg
+
+    print*, "NonOptionalProcedure: Argument =", arg
+  end subroutine NonOptionalProcedure
+
+  subroutine OptionalProcedure(arg)
+    integer, optional :: arg
+
+    if (present(arg)) then
+      print*, "OptionalProcedure: Argument =", arg
+    else
+      print*, "OptionalProcedure: Argument is absent"
+    end if
+  end subroutine OptionalProcedure
+
+end module OptionalArgumentModule
+
+program MainProgram
+  use OptionalArgumentModule
+  implicit none
+
+  call Caller()     ! Case 1: Argument is absent in the caller
+  call Caller(10)   ! Case 2: Argument is present in the caller
+
+end program MainProgram
+
+!  output (added by me):
+!  OptionalProcedure: Argument is absent
+!  NonOptionalProcedure: Argument =          10
+!  OptionalProcedure: Argument =          10
+```
+
+
