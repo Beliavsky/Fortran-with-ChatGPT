@@ -102,6 +102,27 @@ end program main
 
 In this example, the module `cylinder_mod` contains the function `cylinder_volume`, which takes the radius and height of the cylinder as input arguments and returns the calculated volume. The module is then used in the main program, which calls the `cylinder_volume` function with specific values for the radius and height. The resulting volume is then printed to the console.
 
+**Note:** alternative syntax for a function is that the result name can be the same as the function name, for example
+
+```
+function cylinder_volume(radius, height)
+    real, intent(in) :: radius, height
+    real             :: cylinder_volume
+    real, parameter :: pi = 3.14159
+    volume = pi * radius**2 * height
+end function cylinder_volume
+```
+
+and the type can be given on the header line, as with
+
+```
+real function cylinder_volume(radius, height)
+    real, intent(in) :: radius, height
+    real, parameter :: pi = 3.14159
+    volume = pi * radius**2 * height
+end function cylinder_volume
+```
+
 ---
 **The program compiles and runs without the `private` statement in the module. In general, why should  you include a `private` statement?**
 
