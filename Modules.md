@@ -195,7 +195,7 @@ To declare a function as elemental in Fortran, it must satisfy the following con
 2. The function should not have any side effects or modify variables in the global state. It can only depend on the values of its arguments and other variables that are not modified within the function.
 3. The function should return a scalar result, meaning that the result is a single value.
 
-By satisfying these conditions, the function can be called with array arguments, and it will operate element-wise on the arrays, returning a result array of the same shape.
+By satisfying these conditions, the function can be called with array arguments, and it will operate element-wise on the arrays, returning a result array of the same shape. **Note:** a `pure` function satisfies condition 2 above but not necessarily 1 or 3. Functions should be written to be either `pure` or `elemental`.
 
 ---
 **Add an elemental function that computes the volume of a sphere to the previous module. Define pi as a module-level parameter and use it in both functions. Rename the module appropriately.**
