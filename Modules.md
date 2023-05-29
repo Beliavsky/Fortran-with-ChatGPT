@@ -36,3 +36,72 @@ Putting functions and subroutines in modules offers several advantages in Fortra
 3. Name Scope Management: Modules define their own name scopes, which helps avoid naming conflicts and promotes proper scoping of variables and procedures. By placing functions and subroutines within modules, you can avoid naming clashes with entities defined in other parts of the program.
 
 **Note:** when a procedure is placed in a module and another program USEs the module to access the procedure, the compiler checks that the procedure is being called with appropriate arguments. Functions and subroutines being called with the wrong argument types was a common error in Fortran 77, which did not have modules.
+
+---
+**How do functions work?**
+
+In Fortran, functions are subprograms that perform specific tasks and return a value to the calling program. They are defined using the `function` keyword and can take zero or more arguments as input. Functions are typically used to perform calculations or transformations on input values and produce a result.
+
+Here's the general syntax for defining a function in Fortran:
+
+```fortran
+[attributes] function function_name(arg1, arg2, ...) result(return_value)
+    [variable declarations]
+    [executable statements]
+end function function_name
+```
+
+Let's break down the different components of a function:
+
+- `attributes` (optional): You can specify attributes such as `pure`, `elemental`, or `recursive` to define certain characteristics or restrictions on the function.
+- `function_name`: This is the name of the function, which you can choose according to your program's naming conventions.
+- `(arg1, arg2, ... )`: These are the input arguments of the function. You can specify the number, order, and types of the arguments as needed.
+- `result(return_value)`: This specifies the data type of the value returned by the function. The `return_value` is the name of the variable that holds the returned value.
+- `variable declarations`: This section is optional and used to declare any local variables needed within the function.
+- `executable statements`: These are the statements that define the behavior and calculations performed by the function.
+
+To use a function, you typically call it from another part of the program and assign the returned value to a variable or use it directly in an expression. Functions provide a way to encapsulate specific calculations or operations into reusable units, allowing you to modularize your code and improve readability and maintainability.
+
+---
+**Define a function that computes the volume of a cylinder given the radius and height, put the function in a module, and write a main program that calls the function.**
+
+Here's an example of defining a function to compute the volume of a cylinder in Fortran and organizing it within a module:
+
+```fortran
+module cylinder_mod
+    implicit none
+    
+    private          ! Make the contents of the module private
+    
+    public :: cylinder_volume
+    
+    contains
+    
+    function cylinder_volume(radius, height) result(volume)
+        real :: radius, height, volume
+        real, parameter :: pi = 3.14159
+        
+        volume = pi * radius**2 * height
+    end function cylinder_volume
+    
+end module cylinder_mod
+
+
+program main
+    use cylinder_mod
+    implicit none
+    
+    real :: radius, height, volume
+    
+    ! Read the values of radius and height from user input or assign them directly
+    
+    radius = 2.0
+    height = 5.0
+    
+    volume = cylinder_volume(radius, height)
+    
+    print*, "The volume of the cylinder is:", volume
+end program main
+```
+
+In this example, the module `cylinder_mod` contains the function `cylinder_volume`, which takes the radius and height of the cylinder as input arguments and returns the calculated volume. The module is then used in the main program, which calls the `cylinder_volume` function with specific values for the radius and height. The resulting volume is then printed to the console.
