@@ -114,3 +114,14 @@ You are correct that including the `private` statement in a module is not strict
 3. Readability and maintainability: Making the module contents private communicates the intended usage and interface of the module. It clarifies which entities are meant to be accessed by other parts of the program (**Note:** those entities are declared `public`.) and which are internal implementation details. This improves the readability and maintainability of the codebase, especially in larger projects with multiple modules.
 
 While including the `private` statement is not strictly required, it is generally recommended to promote code organization, modularity, and prevent potential issues related to naming conflicts.
+
+---
+**The function arguments are declared `intent(in)`. What is argument `intent`?**
+
+The `intent` attribute in Fortran is used to specify the intended use of a procedure argument (variable) within a function or subroutine. It provides information to the compiler and helps enforce proper usage and error checking. The `intent` attribute can take the following values:
+
+- `intent(in)`: The argument is read-only within the procedure and should not be modified.
+- `intent(out)`: The argument is write-only within the procedure, and its initial value is not significant.
+- `intent(inout)`: The argument can be both read and modified within the procedure.
+
+By specifying the `intent` attribute, you communicate the expected behavior of the arguments to the compiler, which can optimize the code and provide error checking during compilation.
