@@ -1,4 +1,4 @@
-## Modules, Functions, and Subroutines
+## Modules and Functions
 
 **Discuss the roles of modules, functions, and subroutines in Fortran.**
 
