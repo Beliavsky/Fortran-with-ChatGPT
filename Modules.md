@@ -70,25 +70,18 @@ Here's an example of defining a function to compute the volume of a cylinder in 
 ```fortran
 module cylinder_mod
     implicit none
-    
-    private          ! Make the contents of the module private
-    
+    private          ! Make the contents of the module private  
     public :: cylinder_volume
-    
     contains
     
 function cylinder_volume(radius, height) result(volume)
     real, intent(in) :: radius, height
     real             :: volume
     real, parameter :: pi = 3.14159
-    
     volume = pi * radius**2 * height
 end function cylinder_volume
-    
 
-    
 end module cylinder_mod
-
 
 program main
     use cylinder_mod
