@@ -125,3 +125,42 @@ The `intent` attribute in Fortran is used to specify the intended use of a proce
 - `intent(inout)`: The argument can be both read and modified within the procedure.
 
 By specifying the `intent` attribute, you communicate the expected behavior of the arguments to the compiler, which can optimize the code and provide error checking during compilation.
+
+---
+**Explain what an elemental function is and show how making the `cylinder_volume` function elemental enables the program to easily compute the volumes of cylinders with radius 10 and varying heights.**
+
+In Fortran, an elemental function is a function that operates element-wise on arrays. When a function is declared as elemental, it allows you to apply the function to each element of an array individually, resulting in an array of the same shape. This eliminates the need for explicit loops when working with arrays and enables more concise code.
+
+To make the `cylinder_volume` function elemental, you can simply add the `elemental` attribute to the function declaration. Here's an example:
+
+```fortran
+module cylinder_mod
+    implicit none
+
+    contains
+
+    elemental function cylinder_volume(radius, height) result(volume)
+        real, intent(in) :: radius, height
+        real :: volume
+        real, parameter :: pi = 3.14159
+
+        volume = pi * radius**2 * height
+    end function cylinder_volume
+
+end module cylinder_mod
+
+program main
+    use cylinder_mod
+    implicit none
+    real :: heights(3), volumes(3)
+    real, parameter :: radius = 10.0
+
+    heights = [2.0, 4.0, 6.0]
+    volumes = cylinder_volume(radius, heights)
+
+    print*, volumes
+
+end program main
+```
+
+In this example, the `cylinder_volume` function is declared as elemental by adding the `elemental` attribute to the function declaration. This allows us to pass an array of heights to the function and compute the corresponding volumes for each element individually. The resulting volumes are stored in the `volumes` array, which is then printed.
