@@ -71,3 +71,50 @@ program main
 
 end program main
 ```
+
+---
+**Make the calculate_circle subroutine elemental and pass it radii of 10.0 and 100.0**
+
+To make the `calculate_circle` subroutine elemental, we can modify the code as follows:
+
+```fortran
+module CircleModule
+    implicit none
+
+    contains
+
+    elemental subroutine calculate_circle(radius, circumference, area)
+        real, intent(in) :: radius
+        real, intent(out) :: circumference, area
+        real, parameter :: pi = 3.14159
+
+        ! Calculate circumference
+        circumference = 2.0 * pi * radius
+
+        ! Calculate area
+        area = pi * radius**2
+    end subroutine calculate_circle
+
+end module CircleModule
+
+program main
+    use CircleModule
+    implicit none
+
+    real :: radii(2), circumference(2), area(2)
+
+    ! Set the radii
+    radii = [10.0, 100.0]
+
+    ! Call the elemental subroutine to calculate the circle properties
+    call calculate_circle(radii, circumference, area)
+
+    ! Print the results
+    print*, "Radii:", radii
+    print*, "Circumference:", circumference
+    print*, "Area:", area
+
+end program main
+```
+
+In this updated code, the `calculate_circle` subroutine has been declared as elemental. It can now accept an array of radii as input and return the corresponding circumferences and areas as arrays. The `radii`, `circumference`, and `area` variables in the main program are now declared as arrays to accommodate the multiple values. The `calculate_circle` subroutine is then called with the `radii` array, and the resulting `circumference` and `area` arrays are printed.
