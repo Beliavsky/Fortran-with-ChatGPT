@@ -217,3 +217,48 @@ Here's how assumed-shape array arguments work:
 4. The procedure can perform operations on the assumed-shape array using array syntax and indexing, similar to regular arrays.
 
 Assumed-shape array arguments provide flexibility in handling arrays of different sizes and shapes without the need for explicit size or shape declarations. They are particularly useful when the size of the array is determined at runtime or when working with sections of larger arrays.
+
+---
+**Rewrite the previous subroutine calculate_circle to take an assumed-shape argument.**
+
+Here's the revised version of the `calculate_circle` subroutine that takes an assumed-shape array argument:
+
+```fortran
+module CircleModule
+    implicit none
+
+    contains
+
+subroutine calculate_circle(radii)
+  real, intent(in) :: radii(:)
+  real, parameter :: pi = 3.14159
+  integer :: i
+
+  do i = 1, size(radii)
+    print*, "Radius:", radii(i)
+    print*, "Circumference:", 2.0 * pi * radii(i)
+    print*, "Area:", pi * radii(i)**2
+    print*   ! Blank line for separation
+  end do
+end subroutine calculate_circle
+
+end module CircleModule
+
+program main
+    use CircleModule
+    implicit none
+
+    real :: radii(2)
+
+    ! Set the radii
+    radii = [10.0, 100.0]
+
+    ! Call the elemental subroutine to calculate and print the circle properties
+    call calculate_circle(radii)
+
+end program main
+```
+
+In this version, the `radii` argument is declared as an assumed-shape array by using empty parentheses after the `radii` variable name. Inside the subroutine, the `radii` array can be accessed and manipulated using normal array syntax. The `size` function is used to determine the size of the array.
+
+This revised subroutine allows you to calculate the circumference and area of circles for multiple radii in a single call, providing flexibility in handling arrays of different sizes.
