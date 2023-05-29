@@ -164,3 +164,12 @@ end program main
 ```
 
 In this updated code, the `calculate_circle` subroutine now directly prints the circumference and area values instead of passing them back as arguments. The subroutine receives the radius as an input and performs the calculations accordingly. The `calculate_circle` subroutine is called from the main program with the `radii` array, and it prints the circumference and area for each radius value.
+
+---
+**What is an `impure elemental` procedure?**
+
+In Fortran, an `impure elemental` procedure is an elemental procedure that can have side effects. Elemental procedures are those that operate element-wise on arrays or scalar arguments. By default, elemental procedures are pure, meaning they do not have side effects and their output only depends on their input arguments.
+
+However, there are cases where an elemental procedure needs to have side effects, such as printing output or modifying global variables. In such cases, the `impure` attribute can be added to the elemental procedure declaration to indicate that it is impure and can have side effects.
+
+An `impure elemental` procedure allows for element-wise operations while allowing side effects within the procedure body. This can be useful in certain situations where the elemental nature of the procedure is desired, but side effects are necessary.
