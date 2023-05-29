@@ -332,6 +332,8 @@ In this code, the `power` function is defined within the `math_module` module. T
 ---
 **Can you pass an optional argument to another procedure?**
 
+**Note:** ChatGPT needed some nudges before it came up with this:
+
 When passing an optional argument to another procedure, there are two cases to consider:
 
 1. Passing the optional argument to a procedure where it is **not** optional: In this case, the optional argument must be verified as present in the caller before passing it to the procedure.
@@ -386,4 +388,44 @@ end program MainProgram
 !  OptionalProcedure: Argument =          10
 ```
 
+---
+**Can a function be recursive -- call itself?**
 
+Yes, a function in Fortran can be recursive, which means it can call itself. However, recursive functions must have a terminating condition to avoid infinite recursion. The termination condition determines when the recursive calls stop and the function returns a final result.
+
+Here's an example of a recursive function in Fortran that calculates the factorial of a given number:
+
+```
+module FactorialModule
+  implicit none
+
+  contains
+
+  recursive function factorial(n) result(result)
+    integer, intent(in) :: n
+    integer :: result
+
+    if (n == 0) then
+      result = 1  ! Termination condition: factorial of 0 is 1
+    else
+      result = n * factorial(n - 1)  ! Recursive call to calculate factorial
+    end if
+  end function factorial
+
+end module FactorialModule
+
+program MainProgram
+  use FactorialModule
+  implicit none
+  integer :: n
+  n = 5
+
+  ! Call the factorial function and print the result
+  write(*,*) "Factorial of", n, "is", factorial(n)
+
+end program MainProgram
+```
+
+In this example, the `factorial` function calls itself with the argument `n - 1` until `n` reaches 0, at which point the recursion terminates. The function then returns the final result.
+
+**Note:** In Fortran 2018, procedures are recursive by default and do not need to be declared recursive. Not all compilers currently implement this feature. 
