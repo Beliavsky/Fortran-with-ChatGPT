@@ -26,3 +26,48 @@ In contrast, functions should be used when you need to compute and return a spec
 It's worth noting that subroutines and functions can work together, where a function can be called within a subroutine to compute a value and then modify variables based on the result. This allows for a modular and organized programming approach, separating the responsibilities of computation and variable modification.
 
 To summarize, subroutines are used when you need to perform a series of actions or modify variables without returning a specific value. They are suitable for operations that require side effects or state modifications. Functions, on the other hand, are used when you need to compute and return a specific result based on the input arguments.
+
+---
+**Write a `pure` subroutine that calculates the circumference and area of a circle with a given radius. Put in a module and call it from a main program.**
+
+ChatGPT-4 initially errs by saying that subroutines cannot be `pure`. When corrected, it produces this code:
+
+```fortran
+module CircleModule
+    implicit none
+
+    contains
+
+    pure subroutine calculate_circle(radius, circumference, area)
+        real, intent(in) :: radius
+        real, intent(out) :: circumference, area
+        real, parameter :: pi = 3.14159
+
+        ! Calculate circumference
+        circumference = 2.0 * pi * radius
+
+        ! Calculate area
+        area = pi * radius**2
+    end subroutine calculate_circle
+
+end module CircleModule
+
+program main
+    use CircleModule
+    implicit none
+
+    real :: radius, circumference, area
+
+    ! Set the radius
+    radius = 5.0
+
+    ! Call the pure subroutine to calculate the circle properties
+    call calculate_circle(radius, circumference, area)
+
+    ! Print the results
+    print*, "Radius:", radius
+    print*, "Circumference:", circumference
+    print*, "Area:", area
+
+end program main
+```
