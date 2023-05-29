@@ -260,4 +260,25 @@ Consider the function `cylinder_volume(radius, height)`. If you call this functi
 
 Keyword arguments, on the other hand, are matched to parameters based on the name of the argument, not its position. This can help prevent mistakes when a function has many parameters or when it is not immediately obvious which argument corresponds to which parameter. It also allows you to omit optional arguments or specify them in any order.
 
+---
+**Can I mix positional and keyword arguments?**
 
+Yes, you can mix positional and keyword arguments in a function call. However, there is an important rule to remember: All positional arguments must appear before any keyword arguments. This is because once you start using keyword arguments, the function no longer uses positions to match arguments to parameters.
+
+Here's an example of how you can use both positional and keyword arguments in a function call:
+
+```fortran
+print*, "Volume is ", cylinder_volume(3.0, height=5.0)
+```
+
+In this example, `3.0` is a positional argument for the `radius` parameter, and `height=5.0` is a keyword argument. This is valid because the positional argument `3.0` appears before the keyword argument `height=5.0`.
+
+If you were to reverse the order of the arguments:
+
+```fortran
+print*, "Volume is ", cylinder_volume(radius=3.0, 5.0)
+```
+
+This would result in a compile error because the positional argument `5.0` appears after the keyword argument `radius=3.0`.
+
+So, you can mix positional and keyword arguments, but remember to always place positional arguments before keyword arguments.
