@@ -28,7 +28,7 @@ It's worth noting that subroutines and functions can work together, where a func
 To summarize, subroutines are used when you need to perform a series of actions or modify variables without returning a specific value. They are suitable for operations that require side effects or state modifications. Functions, on the other hand, are used when you need to compute and return a specific result based on the input arguments.
 
 ---
-**Write a `pure` subroutine that calculates the circumference and area of a circle with a given radius. Put in a module and call it from a main program.**
+**Write a `pure` subroutine that calculates the circumference and area of a circle with a given radius. Put it in a module and call it from a main program.**
 
 ChatGPT-4 initially errs by saying that subroutines cannot be `pure`. When corrected, it produces this code:
 
