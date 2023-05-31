@@ -16,7 +16,7 @@ This page discusses compiling. For other topics see
 
 Absolutely, here is a simple Fortran "Hello World" program:
 
-```
+```Fortran
 ! This is a simple Fortran program
 program HelloWorld
     implicit none
@@ -178,7 +178,7 @@ Division: `/`
 Exponentiation: `**`
 
 Here's an example that demonstrates the use of these operators without explicitly defining variables:
-```
+```Fortran
 program arithmetic_example
     implicit none
     integer :: result
