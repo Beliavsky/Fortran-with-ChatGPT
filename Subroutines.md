@@ -330,7 +330,7 @@ intent(in out) :: x(:)
 ```
 **that shifts and scales x so that it has mean zero and variance one.**
 
-Certainly! Here's an example of the `standardize` subroutine that uses an `intent(in out)` argument to modify the `x` array in-place:
+Here's an example of the `standardize` subroutine that uses an `intent(in out)` argument to modify the `x` array in-place:
 
 ```fortran
 module StandardizeModule
