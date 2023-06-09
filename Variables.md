@@ -191,3 +191,5 @@ The division operator `/` has left-to-right associativity, which means the divis
 When `x` is `4.0`, the expression `x / x` evaluates to `1.0` (floating-point division of `4.0` by `4.0`). Then, `1.0 / x` evaluates to `0.25` (floating-point division of `1.0` by `4.0`).
 
 Hence, the overall result of `x / x / x` is `0.25`.
+
+**Note:** although the meaning of `a / b / c` is unambiguous according to the Fortran standard, I suggest writing it as `(a/b) / c` for clarity.
