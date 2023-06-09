@@ -86,9 +86,7 @@ real :: x(5)
 **and you try to access an element of x with subscript outside the range of 1 through 5?**
 
 If you try to access an element of an array with a subscript (index) that is outside the declared range of the array, your program will likely crash or produce unexpected results. 
-
-In Fortran, array bounds are checked at runtime. If you try to access an array element that is outside the valid range, you'll usually get a runtime error. 
-
+ 
 For example, consider this Fortran program:
 
 ```Fortran
