@@ -191,7 +191,7 @@ You can use this array section in assignments, computations, or any other operat
 ---
 **How do I get the elements of array x satisfying a condition, for example being positive?**
 
-ChatGPT gives a wrong answer. The right answer is to use `pack` intrinsic function, as in the expression
+ChatGPT gives a wrong answer. The right answer is to use the `pack` intrinsic function, as in the expression
 ```
 pack(x, mask = x > 0)
 ```
