@@ -533,3 +533,17 @@ Some commonly used intrinsic functions for linear algebra functions are
    - `DOT_PRODUCT(a, b)`: Computes the dot product of two vectors `a` and `b`.
    - `TRANSPOSE(matrix)`: Computes the transpose of a matrix.
 
+---
+
+**Is the following program valid Fortran? What will its output be?**
+
+```Fortran
+program main
+implicit none
+real :: x(0), y(-3:-4)
+print*,lbound(x), ubound(x)
+print*,lbound(y), ubound(y)
+end program main
+```
+
+**ChatGPT-4 wrongly says the program is invalid. The program is valid and will give output `1 0` modulo spacing for both print statements, as discussed [here](https://fortran-lang.discourse.group/t/just-say-no-to-non-default-lower-bounds/6108/27).**
